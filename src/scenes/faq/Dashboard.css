@@ -1,0 +1,19 @@
+.newton-pendulum-cradle {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: #ff4081;
+  border-radius: 50%;
+  cursor: pointer;
+}
