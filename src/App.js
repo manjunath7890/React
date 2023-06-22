@@ -6,7 +6,6 @@ import Dashboard from "./scenes/dashboard";
 import Form from "./scenes/form";
 import Line from "./scenes/line";
 import Faq from "./scenes/faq";
-import Pie from "./scenes/pie";
 import BAR from "./scenes/bar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
@@ -56,7 +55,6 @@ function App() {
               <Route path="/" element={<Login data={data} onLogin={handleDataFromChild}/>} />
               <Route path="/dashboard" element={<Dashboard data={data} />} />
               <Route path="/form" element={<Form />} />
-              <Route path="/pie" element={<Pie />} />
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<Faq data={data}/>} />
               <Route path="/bar" element={<BAR />} />
