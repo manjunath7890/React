@@ -10,7 +10,7 @@ const Form = () => {
 
   const navigate  =  useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
-  const host = 'http://127.0.0.1:4000'
+  const host = 'https://mernserver-ep5w.onrender.com'
 
   
   const handleFormSubmit = async (values) => {

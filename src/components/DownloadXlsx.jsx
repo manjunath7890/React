@@ -5,7 +5,7 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 const Xlsx = (props) => {
     const downloadXlsx = async () => {
         try {
-          const response = await fetch(`http://localhost:4000/api/data?fileName=${props.fileName}`);
+          const response = await fetch(`https://mernserver-ep5w.onrender.com/api/data?fileName=${props.fileName}`);
           const data = await response.json();
           const workbook = XLSX.utils.book_new();
           const worksheet = XLSX.utils.json_to_sheet(data);

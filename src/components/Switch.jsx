@@ -46,7 +46,7 @@ function SwitchToggle() {
     const postData = async () => {
       try {
 
-        const response = await fetch('http://localhost:4000/postinput', {
+        const response = await fetch('https://mernserver-ep5w.onrender.com/postinput', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
