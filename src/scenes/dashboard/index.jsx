@@ -21,7 +21,7 @@ import Visual from "../../components/DataVisual";
 const useStyles = makeStyles(() => ({
   card: {
     height: '12rem',
-    // backgroundColor: 'black',
+    borderBottomRightRadius: '70px'
   },
   mapContainer: {
     height: '26.5rem', 
@@ -67,7 +67,7 @@ const Dashboard = (props) => {
         <Card className={classes.card} style={styles}>
           <CardContent >
           <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-1:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
       </Grid>
@@ -75,7 +75,7 @@ const Dashboard = (props) => {
         <Card className={classes.card} style={styles}>
           <CardContent>
           <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-2:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
       </Grid>
@@ -83,7 +83,7 @@ const Dashboard = (props) => {
         <Card className={classes.card} style={styles}>
           <CardContent>
           <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-3:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
       </Grid>

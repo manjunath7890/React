@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import InfoIcon from '@mui/icons-material/Info';
+import BrightnessAutoIcon from '@mui/icons-material/BrightnessAuto';
+import BoltIcon from '@mui/icons-material/Bolt';
 import { tokens } from "../theme";
 import ProgressCircle from "./ProgressCircle";
 import Modall from "./StatBoxModal";
@@ -17,7 +18,9 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
             sx={{ color: colors.greenAccent[500] }}
             display={'flex'}
           >
-          {heading}<Modall  data={icon} color={colors.greenAccent[500]} voltage={subtitle}/>  
+          {icon}
+          {' '}
+          {heading}
           </Typography>
           {/* {icon} */}
           
@@ -29,6 +32,8 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
             alignItems={'center'}
             sx={{ color: colors.grey[100] ,marginBottom:'-10px'}}
           >
+             <BrightnessAutoIcon style={{color: colors.greenAccent[500]}}/>
+             {' '}
              {Math.floor(title)}
              <Box fontSize={'25px'} fontWeight={'20'} component="span" ml={0.5} mt={1.5}>{'.'}{title % 1}</Box>
              {/* <Box fontSize={'20px'}>{'A'}</Box> */}
@@ -39,6 +44,8 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
             color={colors.grey[100]}
             mb={'20px'}
           >
+            <BoltIcon style={{color: colors.greenAccent[500]}}/>
+            {' '}
             {subtitle}
             {/* {' V'} */}
           </Typography>
@@ -56,7 +63,8 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
           </Typography>
         </Box>
 
-        <Box mt={'20px'} mr={'10px'}> 
+        <Box mr={'5px'} mt={'1px'}> 
+          <Modall  data={icon} color={colors.greenAccent[500]} voltage={subtitle}/>  
           <ProgressCircle progress={progress}  size={120} />
         </Box>
       </Box>

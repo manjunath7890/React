@@ -84,7 +84,7 @@ function NestedModal(props) {
   
     return (
       <div>
-        <Button onClick={handleOpen} sx={{color:props.color, padding:'0px'}}><InfoIcon/></Button>
+        <Button onClick={handleOpen} sx={{color:props.color, marginBottom:'10px' , marginLeft:'5px'}}><InfoIcon/> more info:</Button>
         <Modal
           open={open}
           onClose={handleClose}

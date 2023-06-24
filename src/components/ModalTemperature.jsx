@@ -40,20 +40,20 @@ function TempModal(props) {
           <Box sx={{ ...style, width: 200 }}>
             <h2 id="parent-modal-title">INFO</h2>
             <p id="parent-modal-description" >
-            <div style={{display:'block' }}> 
-            {props.data} Power: {props.voltage} V 
+            <div style={{display:'block', marginTop:'10px' }}> 
+            {props.data} Temperature 1: {props.voltage} V 
             </div>
-            <div style={{display:'block'}}> 
-            {props.data} Whr: {props.voltage} V 
+            <div style={{display:'block', marginTop:'10px'}}> 
+            {props.data} Temperature 2: {props.voltage} V 
             </div>
-            <div style={{display:'block'}}> 
-            {props.data} high volt: {props.voltage} V 
+            <div style={{display:'block', marginTop:'10px'}}> 
+            {props.data} Temperature 3: {props.voltage} V 
             </div>
-            <div style={{display:'block'}}> 
-            {props.data} low volt: {props.voltage} V 
+            <div style={{display:'block', marginTop:'10px'}}> 
+            {props.data} Temperature 4: {props.voltage} V 
             </div>
-            <div style={{display:'block'}}> 
-            {props.data} Avg volt: {props.voltage} V 
+            <div style={{display:'block', marginTop:'10px'}}> 
+            {props.data} Temperature 5: {props.voltage} V 
             </div>
             </p>
           </Box>
