@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
+
 
 const style = {
   position: 'absolute',
@@ -82,7 +84,7 @@ function NestedModal(props) {
   
     return (
       <div>
-        <Button onClick={handleOpen} sx={{color:props.color, padding:'-10px'}}>info:</Button>
+        <Button onClick={handleOpen} sx={{color:props.color, padding:'0px'}}><InfoIcon/></Button>
         <Modal
           open={open}
           onClose={handleClose}

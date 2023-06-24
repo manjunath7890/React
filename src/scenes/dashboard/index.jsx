@@ -16,6 +16,7 @@ import {
   makeStyles,
   useMediaQuery,
 } from '@material-ui/core';
+import Visual from "../../components/DataVisual";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles(() => ({
     // backgroundColor: 'black',
   },
   mapContainer: {
-    height: '26rem',
+    height: '26.5rem', 
   },
   content: {
     padding: 0, // Remove the padding inside the CardContent
@@ -41,16 +42,24 @@ const Dashboard = (props) => {
   };
   const styles = {
     border: `1px solid ${colors.primary[700]}`,
-    boxShadow: `0 0 20px 0px ${colors.primary[200]}`,
+    boxShadow: "0 2px 10px rgba(0, 0, 0, 1)",
     backgroundColor: `${colors.primary[400]}`,
   };
 
   const isXiaomiPad = useMediaQuery('(max-width: 1400px)');
   return (
-    <Grid container spacing={2} style={{maxWidth:'100%'}}>
+    <Grid container spacing={2} style={{maxWidth:'99%', marginLeft:'10px'}}>
       <Grid item xs={12} sm={6} md={3}  >
         <Card className={classes.card} style={styles}>
+        <Box display={'flex'}>
+        <Box> 
           <SwitchExample />
+        </Box>
+        {/* <Box sx={{ width:'100%', marginRight:'10px'}}>
+          <Visual data={props.data.var5} label={'Trip'}/>
+          <Visual data={props.data.var5} label={'Trip'}/>
+        </Box> */}
+        </Box> 
         </Card>
       </Grid>
 
@@ -58,23 +67,23 @@ const Dashboard = (props) => {
         <Card className={classes.card} style={styles}>
           <CardContent >
           <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-1:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>} />
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
           </CardContent>
         </Card>
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
         <Card className={classes.card} style={styles}>
           <CardContent>
-          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-1:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>} />
+          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-2:'
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
           </CardContent>
         </Card>
       </Grid>
       <Grid item xs={12} sm={6} md={3} >
         <Card className={classes.card} style={styles}>
           <CardContent>
-          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-1:'
-            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>} />
+          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-3:'
+            icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }}/>} />
           </CardContent>
         </Card>
       </Grid>
@@ -92,20 +101,12 @@ const Dashboard = (props) => {
             <StatBox2  val1={props.data.var4} val2={props.data.var5} val={props.data.var4} progressVal={props.data.var5} heading='Temperature:'
                  icon={<DeviceThermostatSharpIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>}/>     
             <Box sx={{display:'flex', width:'100%'}}>
-            <Box border={'1px solid grey'} m={'5px 5px'} p={'2px 10px'} bgcolor={colors.primary[500]}  width={'100%'}>
-              <div style={{color:colors.greenAccent[500], fontSize:'15px', margin:'0'}}>Distance:</div>  <div style={{fontSize:'30px', marginLeft:'1px', color:'white', }}>1000</div>
-            </Box> 
-            <Box border={'1px solid grey'} m={'5px 5px'} p={'2px 10px'} bgcolor={colors.primary[500]}  width={'100%'}>
-              <div style={{color:colors.greenAccent[500], fontSize:'15px', margin:'0'}}>Distance:</div>  <div style={{fontSize:'30px', marginLeft:'1px', color:'white', }}>1000</div>
-            </Box> 
+              <Visual data={props.data.var5} label={'RPM'}/>
+              <Visual data={props.data.var5} label={'Distance'}/>
             </Box>     
             <Box sx={{display:'flex', width:'100%'}}>
-            <Box border={'1px solid grey'} m={'5px 5px'} p={'2px 10px'} bgcolor={colors.primary[500]} justifyContent={"center"} width={'100%'}>
-              <div style={{color:colors.greenAccent[500], fontSize:'15px', margin:'0'}}>Distance:</div>  <div style={{fontSize:'30px', marginLeft:'1px', color:'white', }}>1000</div>
-            </Box> 
-            <Box border={'1px solid grey'} m={'5px 5px'} p={'2px 10px'} bgcolor={colors.primary[500]}  width={'100%'}>
-              <div style={{color:colors.greenAccent[500], fontSize:'15px', margin:'0'}}>Distance:</div>  <div style={{fontSize:'30px', marginLeft:'1px', color:'white', }}>1000</div>
-            </Box> 
+              <Visual data={props.data.var5} label={'Trip'}/>
+              <Visual data={props.data.var5} label={'Slope'}/>
             </Box>     
           </CardContent>
         </Card>

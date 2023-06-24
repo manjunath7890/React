@@ -14,7 +14,7 @@ const CustomSwitch = withStyles({
       transform: 'translateX(40px)',
       color: '#fff',
       '& + $track': {
-        backgroundColor: '#4cceac',
+        backgroundColor: '#01ffff',
         opacity: 1,
         border: 'none',
       },

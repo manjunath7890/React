@@ -15,13 +15,23 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isActive = selected === title;
+
+  const handleClick = () => {
+    setSelected(title);
+  };
+
   return (
     <MenuItem
-      active={selected === title}
+      active={isActive}
       style={{
+        backgroundColor: isActive ? "#01ffff" : "transparent",
+        // border:  isActive ?'1px solid #666666': "transparent",
+        // borderRadius:'10px',
         color: colors.grey[100],
+        fontWeight: 'bold'
       }}
-      onClick={() => setSelected(title)}
+      onClick={handleClick}
       icon={icon}
     >
       <Typography>{title}</Typography>
@@ -37,7 +47,7 @@ const Sidebar = (props) => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box
+    <Box 
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[500]} !important`,
@@ -46,17 +56,18 @@ const Sidebar = (props) => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 10px !important",
+          padding: "5px 20px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "#01ffff !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#000000 !important",
+          boxShadow: "0 2px 10px rgba(0, 0, 0, 1)",
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebar collapsed={isCollapsed} width={'200px'}>
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -69,14 +80,14 @@ const Sidebar = (props) => {
             {!isCollapsed && (
               <Box
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
                 ml="5px"
               >
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
-                <Typography variant="h2" color={colors.grey[100]}>
+                <Typography fontSize={'25px'} color={colors.grey[100]}>
                   TEMPLATE
                 </Typography>
               </Box>
@@ -88,23 +99,24 @@ const Sidebar = (props) => {
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                   src={`../../assets/logo.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
+                  fontSize="25px"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                   {props.data.date}
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                 {props.data.date}
+
+                <Typography fontSize={'15px'} color={colors.blueAccent[500]}>
+                  {props.data.date}
                 </Typography>
               </Box>
             </Box>
