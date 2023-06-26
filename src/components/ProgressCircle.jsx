@@ -20,7 +20,7 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           position: "absolute",
           top: "0",
           left: "0",
-          background: `radial-gradient(${colors.primary[400]} 50%, transparent 52%),
+          background: `radial-gradient(${colors.primary[500]} 50%, transparent 52%),
             conic-gradient(transparent 0deg ${angle}deg, ${colors.primary[400]} ${angle}deg 360deg),
             ${colors.greenAccent[500]}`,
           borderRadius: "50%",
@@ -28,7 +28,7 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           height: "100%",
           // transform: "rotateX(60deg) rotateZ(45deg)", // Apply 3D rotations
           // boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)", // Add a shadow effect
-          boxShadow: "0 2px 10px rgba(0, 0, 0, 1)", // Add a shadow effect
+          boxShadow: "0 2px 3px rgba(110, 110, 110)", // Add a shadow effect
           
         }}
       />

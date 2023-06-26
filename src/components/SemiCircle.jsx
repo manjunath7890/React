@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 // import { Box, useTheme } from "@mui/material";
 
 
-const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorGreen, maxValue = 45, label = "label" }) => {
+const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorGreen, maxValue = 45, label }) => {
   const chartRef = useRef(null);
 
 
@@ -25,6 +25,14 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
       sparkline: {
         enabled: true,
       },
+      dropShadow: {
+        enabled: true,
+        top: 3,
+        left: 0,
+        blur: 2,
+        opacity: 0.3,
+        color: "#888",
+      },
     },
     plotOptions: {
       radialBar: {
@@ -35,19 +43,35 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
           size: "60%",
           background: "transparent",
           image: undefined,
+          dropShadow: {
+            enabled: true,
+            top: 0,
+            left: 0,
+            blur: 3,
+            opacity: 1,
+            // color: "#888888",          
+          },
         },
         track: {
           background: colorBlue,
           strokeWidth: "100%",
           margin: 0,
+          dropShadow: {
+            enabled: true,
+            top: 3,
+            left: 0,
+            blur: 2,
+            opacity: 0.1,
+            color: "#aaa",
+          },
         },
         dataLabels: {
           show: true,
           name: {
             show: true,
             offsetY: 50,
-            color: colorBlue,
-            fontSize: "15px",
+            color: colorGreen,
+            fontSize: "20px",
           },
           value: {
             formatter: function () {
@@ -55,7 +79,7 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
             },
             show: true,
             color: colorGrey,
-            fontSize: "40px",
+            fontSize: "50px",
             fontWeight: "bold",
             offsetY: -10,
             

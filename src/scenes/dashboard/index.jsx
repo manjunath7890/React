@@ -8,6 +8,8 @@ import StatBox from "../../components/StatBox";
 import StatBox2 from "../../components/StatBox2";
 import GoogleMap from "../../components/Map";
 import SwitchExample from "../../components/Switch";
+import LinearGauge from "../../components/Linear";
+import LinearProgress from '@mui/material/LinearProgress';
 import {
   Grid,
   Typography,
@@ -21,7 +23,7 @@ import Visual from "../../components/DataVisual";
 const useStyles = makeStyles(() => ({
   card: {
     height: '12rem',
-    borderBottomRightRadius: '70px'
+    // borderBottomRightRadius: '70px'
   },
   mapContainer: {
     height: '26.5rem', 
@@ -42,26 +44,41 @@ const Dashboard = (props) => {
   };
   const styles = {
     border: `1px solid ${colors.primary[700]}`,
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 1)",
+    boxShadow: "0 2px 3px rgba(110, 110, 110)",
     backgroundColor: `${colors.primary[400]}`,
   };
 
   const isXiaomiPad = useMediaQuery('(max-width: 1400px)');
   return (
     <Grid container spacing={2} style={{maxWidth:'99%', marginLeft:'10px'}}>
-      <Grid item xs={12} sm={6} md={3}  >
-        <Card className={classes.card} style={styles}>
-        <Box display={'flex'}>
-        <Box> 
-          <SwitchExample />
-        </Box>
-        {/* <Box sx={{ width:'100%', marginRight:'10px'}}>
-          <Visual data={props.data.var5} label={'Trip'}/>
-          <Visual data={props.data.var5} label={'Trip'}/>
-        </Box> */}
-        </Box> 
-        </Card>
-      </Grid>
+     <Grid item xs={12} sm={6} md={3}>
+       <Card className={classes.card} style={styles}>
+       <Box display="flex" justifyContent="center" alignItems="center">
+         <Box>
+           <SwitchExample />
+         </Box>
+         <Box sx={{ width: '100%', transform: 'rotate(-90deg)' }}>
+           <Box sx={{ transformOrigin: 'center' }}>
+             <LinearProgress
+               variant="determinate"
+               value={props.data.var3}
+               sx={{ '& .MuiLinearProgress-bar': { backgroundColor: 'aqua' }, width: '100%', height: '20px' }}
+             />
+           </Box>
+         </Box>
+         <Box sx={{ width: '100%', transform: 'rotate(-90deg)' }}>
+           <Box sx={{ transformOrigin: 'left bottom' }}>
+             <LinearProgress
+               variant="determinate"
+               value={props.data.var3}
+               sx={{ '& .MuiLinearProgress-bar': { backgroundColor: 'aqua' }, width: '100%', height: '20px',  border:'1px solid white'}}
+             />
+           </Box>
+         </Box>
+       </Box>
+       </Card>
+     </Grid>
+
 
       <Grid item xs={12} sm={6} md={3}>
         <Card className={classes.card} style={styles}>
@@ -88,25 +105,34 @@ const Dashboard = (props) => {
         </Card>
       </Grid>
 
-      <Grid item xs={12} sm={6} md={4} >
+      <Grid item xs={12} sm={6} md={3} >
         <Card className={classes.mapContainer} style={styles}>
           <CardContent className={classes.content}>
+            <Box height={'30px'} marginBottom={'10px'} display={'flex'} justifyContent={'space-evenly'} marginTop={'10px'}>
+              <Box border={'1ptx solid white'} width={'48%'} color={colors.greenAccent[500]} fontWeight={'boold'} fontSize={'15px'}>
+                Latitude
+              </Box>
+              <Box border={'1ptx solid white'} width={'48%'} color={colors.greenAccent[500]} fontWeight={'boold'} fontSize={'15px'}>
+                Longitude
+              </Box>
+            </Box>
             <GoogleMap grayscale={colors.grey[900]} />
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} sm={6} md={3} >
+
+      <Grid item xs={12} sm={6} md={4} >
         <Card className={classes.mapContainer} style={styles}>
           <CardContent>
             <StatBox2  val1={props.data.var4} val2={props.data.var5} val={props.data.var4} progressVal={props.data.var5} heading='Temperature:'
                  icon={<DeviceThermostatSharpIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>}/>     
-            <Box sx={{display:'flex', width:'100%'}}>
-              <Visual data={props.data.var5} label={'RPM'}/>
+            <Box sx={{display:'flex', width:'100%' }}>
+              {/* <Visual data={props.data.var5} label={'RPM'}/> */}
               <Visual data={props.data.var5} label={'Distance'}/>
             </Box>     
             <Box sx={{display:'flex', width:'100%'}}>
-              <Visual data={props.data.var5} label={'Trip'}/>
-              <Visual data={props.data.var5} label={'Slope'}/>
+              <Visual data={props.data.var5} label={'Controller temperature'}/>
+              <Visual data={props.data.var5} label={'Motor temperature'}/>
             </Box>     
           </CardContent>
         </Card>
@@ -116,7 +142,6 @@ const Dashboard = (props) => {
         <Grid item xs={12} sm={12} md={12}>
           <Card className={classes.mapContainer} style={styles}>           
             <CardContent style={{padding:'10px 0px'}}>
-              <Typography variant="h6">Map</Typography>
               <LineChart data={props.data} color={color} />
             </CardContent>
           </Card>
