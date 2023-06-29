@@ -13,10 +13,10 @@ let  y2Data2 = 0;
 
 const LineChart = (props) => {
 
-  y1Data1 = parseInt(props.data.var1);
-  y1Data2 = parseInt(props.data.var2);
-  y2Data1 = parseInt(props.data.var3);
-  y2Data2 = parseInt(props.data.var4);
+  y1Data1 = parseInt(props.data.var4);
+  y1Data2 = parseInt(props.data.var9);
+  y2Data1 = parseInt(props.data.var11);
+  y2Data2 = parseInt(props.data.var12);
   const colorGreen = props.color.green;
   const colorBlue = props.color.blue;
   const colorGrey = props.color.grey;
@@ -93,7 +93,7 @@ const LineChart = (props) => {
     },
     yaxis: [
       {
-        max: 4,
+        max: 50,
         title: {
           text: "value 1",
           style: {
@@ -107,7 +107,7 @@ const LineChart = (props) => {
         }
       },
       {
-        max: 200,
+        max: 5000,
         title: {
           text: "value 2",
           style: {
@@ -214,7 +214,7 @@ const LineChart = (props) => {
         }
       },
       {
-        max: 50,
+        max: 180,
         title: {
           text: "value 4",
           style: {

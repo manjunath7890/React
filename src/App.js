@@ -19,16 +19,16 @@ function App() {
   const location = useLocation();
   const [data1, setData1] = useState();
 
-
-
-
   function handleDataFromChild(childData) {
     setData1(childData);
   } 
+
   useEffect(() => {
     if (data1 && location.pathname === "/dashboard") {
       async function fetchData() {
-        const response = await fetch(`https://mernserver-ep5w.onrender.com/getdata?user=${data1}`);
+        // const response = await fetch(`https://mernserver-ep5w.onrender.com/getdata?user=${data1}`);
+        const response = await fetch(`http://localhost:4000/getdata?user=jjjj`);
+
         const result = await response.json();
         setData(result);
       }

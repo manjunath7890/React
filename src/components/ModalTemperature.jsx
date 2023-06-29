@@ -41,19 +41,19 @@ function TempModal(props) {
             <h2 id="parent-modal-title">INFO</h2>
             <p id="parent-modal-description" >
             <div style={{display:'block', marginTop:'10px' }}> 
-            {props.data} Temperature 1: {props.voltage} V 
+            {props.data} Temperature 1: {props.value.var23} V 
             </div>
             <div style={{display:'block', marginTop:'10px'}}> 
-            {props.data} Temperature 2: {props.voltage} V 
+            {props.data} Temperature 2: {props.value.var24} V 
             </div>
             <div style={{display:'block', marginTop:'10px'}}> 
-            {props.data} Temperature 3: {props.voltage} V 
+            {props.data} Temperature 3: {props.value.var25} V 
             </div>
             <div style={{display:'block', marginTop:'10px'}}> 
-            {props.data} Temperature 4: {props.voltage} V 
+            {props.data} Temperature 4: {props.value.var26} V 
             </div>
             <div style={{display:'block', marginTop:'10px'}}> 
-            {props.data} Temperature 5: {props.voltage} V 
+            {props.data} Temperature 5: {props.value.var27} V 
             </div>
             </p>
           </Box>

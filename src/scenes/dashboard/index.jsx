@@ -9,7 +9,6 @@ import StatBox2 from "../../components/StatBox2";
 import GoogleMap from "../../components/Map";
 import SwitchExample from "../../components/Switch";
 import LinearGauge from "../../components/Linear";
-import LinearProgress from '@mui/material/LinearProgress';
 import {
   Grid,
   Typography,
@@ -19,6 +18,7 @@ import {
   useMediaQuery,
 } from '@material-ui/core';
 import Visual from "../../components/DataVisual";
+import TemperatureGauge from "../../components/TempGauge";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -47,43 +47,26 @@ const Dashboard = (props) => {
     boxShadow: "0 2px 3px rgba(110, 110, 110)",
     backgroundColor: `${colors.primary[400]}`,
   };
+  // console.log(props.data);
 
   const isXiaomiPad = useMediaQuery('(max-width: 1400px)');
   return (
     <Grid container spacing={2} style={{maxWidth:'99%', marginLeft:'10px'}}>
      <Grid item xs={12} sm={6} md={3}>
        <Card className={classes.card} style={styles}>
-       <Box display="flex" justifyContent="center" alignItems="center">
-         <Box>
-           <SwitchExample />
-         </Box>
-         <Box sx={{ width: '100%', transform: 'rotate(-90deg)' }}>
-           <Box sx={{ transformOrigin: 'center' }}>
-             <LinearProgress
-               variant="determinate"
-               value={props.data.var3}
-               sx={{ '& .MuiLinearProgress-bar': { backgroundColor: 'aqua' }, width: '100%', height: '20px' }}
-             />
-           </Box>
-         </Box>
-         <Box sx={{ width: '100%', transform: 'rotate(-90deg)' }}>
-           <Box sx={{ transformOrigin: 'left bottom' }}>
-             <LinearProgress
-               variant="determinate"
-               value={props.data.var3}
-               sx={{ '& .MuiLinearProgress-bar': { backgroundColor: 'aqua' }, width: '100%', height: '20px',  border:'1px solid white'}}
-             />
-           </Box>
-         </Box>
-       </Box>
+       <Box display="flex" m={'15px 5px 0px 5px'} color={colors.greenAccent[500]}>
+          
+          <SwitchExample />
+          {/* <TemperatureGauge />     */}
+          {/* <TemperatureGauge value={80} max={100} name={'Motor Temperature'}/>       */}
+        </Box>
        </Card>
      </Grid>
-
 
       <Grid item xs={12} sm={6} md={3}>
         <Card className={classes.card} style={styles}>
           <CardContent >
-          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-1:'
+          <StatBox  voltage={props.data.var1} current={props.data.var3} soc={(props.data.var3) / 100} d={ props.data} heading='battery-1:'
             icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
@@ -91,7 +74,7 @@ const Dashboard = (props) => {
       <Grid item xs={12} sm={6} md={3}>
         <Card className={classes.card} style={styles}>
           <CardContent>
-          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-2:'
+          <StatBox  voltage={props.data.var1} current={props.data.var3} soc={(props.data.var3) / 100}  d={props.data} heading='battery-2:'
             icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
@@ -99,7 +82,7 @@ const Dashboard = (props) => {
       <Grid item xs={12} sm={6} md={3} >
         <Card className={classes.card} style={styles}>
           <CardContent>
-          <StatBox  title={props.data.var2} subtitle={props.data.var1} progress={(props.data.var3) / 100} increase={props.data.var3} heading='battery-3:'
+          <StatBox  voltage={props.data.var1} current={props.data.var3} soc={(props.data.var3) / 100} d={props.data} heading='battery-3:'
             icon={ <Battery0BarOutlinedIcon sx={{ color: colors.greenAccent[500], fontSize: "20px" }}/>} />
           </CardContent>
         </Card>
@@ -124,16 +107,8 @@ const Dashboard = (props) => {
       <Grid item xs={12} sm={6} md={4} >
         <Card className={classes.mapContainer} style={styles}>
           <CardContent>
-            <StatBox2  val1={props.data.var4} val2={props.data.var5} val={props.data.var4} progressVal={props.data.var5} heading='Temperature:'
-                 icon={<DeviceThermostatSharpIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>}/>     
-            <Box sx={{display:'flex', width:'100%' }}>
-              {/* <Visual data={props.data.var5} label={'RPM'}/> */}
-              <Visual data={props.data.var5} label={'Distance'}/>
-            </Box>     
-            <Box sx={{display:'flex', width:'100%'}}>
-              <Visual data={props.data.var5} label={'Controller temperature'}/>
-              <Visual data={props.data.var5} label={'Motor temperature'}/>
-            </Box>     
+            <StatBox2 val={props.data} heading='Temperature:'
+            icon={<DeviceThermostatSharpIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }}/>}/>  
           </CardContent>
         </Card>
       </Grid>

@@ -6,9 +6,10 @@ import ProgressCircle from "./ProgressCircle";
 import Modall from "./StatBoxModal";
 import TempModal from "./ModalTemperature";
 
-const StatBox = ({heading, title, subtitle, icon, progress }) => {
+const StatBox = (props) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  // console.log( props.d.var1);
 
   return (
     <Box width="100%" mr="20px" ml={'10px'}>
@@ -18,14 +19,13 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
             sx={{ color: colors.greenAccent[500] }}
             display={'flex'}
           >
-          {icon}
+          {props.icon}
           {' '}
-          {heading}
+          {props.heading}
           </Typography>
-          {/* {icon} */}
+        
           
           <Typography
-            // fontFamily="Ubuntu, sans-serif"
             fontSize={'40px'}
             fontWeight="bold"
             display={'flex'}
@@ -34,11 +34,11 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
           >
              <BrightnessAutoIcon style={{color: colors.greenAccent[500]}}/>
              {' '}
-             {Math.floor(title)}
+             {Math.floor(props.d && props.d.var16)}
              <Box fontSize="25px" fontWeight={20} component="span" ml={0.5} mt={1.5}>
-              .{((title % 1).toFixed(2)).toString().split('.')[1]}
+              .{(((props.d && props.d.var16) % 1).toFixed(2)).toString().split('.')[1]}
              </Box>
-             {/* <Box fontSize={'20px'}>{'A'}</Box> */}
+          
           </Typography>  
 
           <Typography 
@@ -48,8 +48,7 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
           >
             <BoltIcon style={{color: colors.greenAccent[500]}}/>
             {' '}
-            {subtitle}
-            {/* {' V'} */}
+            {(props.d && props.d.var15)}
           </Typography>
 
           <Typography 
@@ -61,13 +60,13 @@ const StatBox = ({heading, title, subtitle, icon, progress }) => {
             alignItems={'center'}
             justifyContent={'center'}
           >
-            <TempModal   color={colors.greenAccent[500]} voltage={subtitle}/>  
+            <TempModal   color={colors.greenAccent[500]} value={(props.d && props.d)}/>  
           </Typography>
         </Box>
 
         <Box mr={'5px'} mt={'1px'}> 
-          <Modall  data={icon} color={colors.greenAccent[500]} voltage={subtitle}/>  
-          <ProgressCircle progress={progress}  size={120} />
+          <Modall  data={props.icon} color={colors.greenAccent[500]} voltage={(props.d && props.d)}/>  
+          <ProgressCircle progress={(props.d && props.d.var17)/100}  size={120} />
         </Box>
       </Box>
     </Box>

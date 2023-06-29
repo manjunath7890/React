@@ -17,9 +17,10 @@ const Visual = (props) => {
     flexDirection="column"
     alignItems="center"
     justifyContent="center"
+    height='60px'
   >
-    <div style={{ color: colors.greenAccent[500], fontSize: '14px', margin: '0', padding: '0' }}>{props.label}</div>
-    <div style={{ fontSize: '30px', color: `${colors.grey[800]}`, fontWeight: 'bold' }}>{props.data}</div>
+    <div style={{ color: colors.greenAccent[500], fontSize: '14px', margin: '0px', padding: '0' }}>{props.label}</div>
+    <div style={{ fontSize: '30px', color: `${colors.grey[800]}`, fontWeight: 'bold' , margin:' -10px'}}>{props.data}</div>
   </Box> 
   );
 };

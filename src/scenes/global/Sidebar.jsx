@@ -63,7 +63,7 @@ const Sidebar = (props) => {
         },
         "& .pro-menu-item.active": {
           color: "#000000 !important",
-          boxShadow: "0 2px 10px rgba(0, 0, 0, 1)",
+          boxShadow: "0 3px 2px rgba(123, 123, 123, 1)",
         },
       }}
     >
@@ -112,11 +112,11 @@ const Sidebar = (props) => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  {props.data.date}
+                  {props.data.var54}
                 </Typography>
 
                 <Typography fontSize={'15px'} color={colors.blueAccent[500]}>
-                  {props.data.date}
+                  {props.data.var55}
                 </Typography>
               </Box>
             </Box>

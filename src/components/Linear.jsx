@@ -1,29 +1,32 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
+import React from 'react';
 
-export default function LinearDeterminate() {
-  const [progress, setProgress] = React.useState(0);
+const LinearGauge = ({ value, min, max, width, height, color1, color2 }) => {
+  const calculatePercentage = (value, min, max) => {
+    return ((value - min) / (max - min)) * 100;
+  };
 
-//   React.useEffect(() => {
-//     const timer = setInterval(() => {
-//       setProgress((oldProgress) => {
-//         if (oldProgress === 100) {
-//           return 0;
-//         }
-//         const diff = Math.random() * 10;
-//         return Math.min(oldProgress + diff, 100);
-//       });
-//     }, 500);
+  const gaugeStyle = {
+    width: `${height}%`,
+    height: `${width}px`,
+    backgroundColor: color2,
+    borderRadius: '10px',
+    overflow: 'hidden',
+    marginBottom:'10px'
+  };
 
-//     return () => {
-//       clearInterval(timer);
-//     };
-//   }, []);
+  const progressStyle = {
+    width: `${calculatePercentage(value, min, max)}%`,
+    height: '100%',
+    backgroundColor: color1,
+    transition: 'width 0.5s ease',
+  };
 
   return (
-    <Box sx={{ width: '100%'}}>
-      <LinearProgress variant="determinate" value={progress} />
-    </Box>
+    <div style={gaugeStyle}>
+      <div style={progressStyle}></div>
+      <div style={progressStyle}></div>
+    </div>
   );
-}
+};
+
+export default LinearGauge;

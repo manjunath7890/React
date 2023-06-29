@@ -19,7 +19,7 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
 
   const chartOptions = {
     chart: {
-      height: 300,
+      height: 270,
       type: "radialBar",
       offsetY: -10,
       sparkline: {
