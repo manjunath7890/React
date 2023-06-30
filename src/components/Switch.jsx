@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Switch from '@mui/material/Switch';
 import { withStyles } from '@mui/styles';
-
+// import { useTheme } from "@mui/material";
+// import { tokens } from "../theme";
 const CustomSwitch = withStyles({
   root: {
     width: 100,
@@ -14,7 +15,7 @@ const CustomSwitch = withStyles({
       transform: 'translateX(40px)',
       color: '#fff',
       '& + $track': {
-        backgroundColor: '#01ffff',
+        backgroundColor: '#00ffff',
         opacity: 1,
         border: 'none',
       },
@@ -30,11 +31,14 @@ const CustomSwitch = withStyles({
     backgroundColor: '#bdbdbd',
   },
   checked: {},
+
 })(Switch);
 
 function SwitchToggle() {
   const [switchValue, setSwitchValue] = useState(true);
-
+  // const theme = useTheme();
+  // const colors = tokens(theme.palette.mode);
+  // const color = colors.greenAccent[500];
   const handleSwitchChange = (event) => {
     const newValue = event.target.checked;
     setSwitchValue(newValue);
@@ -46,7 +50,7 @@ function SwitchToggle() {
     const postData = async () => {
       try {
 
-        const response = await fetch('https://mernserver-ep5w.onrender.com/postinput', {
+        const response = await fetch('https://telematicsserer.onrender.com/postinput', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -75,6 +79,7 @@ function SwitchToggle() {
         checked={switchValue}
         onChange={handleSwitchChange}
         inputProps={{ 'aria-label': 'Switch demo' }} 
+        // colors={color}
       />
     </div>
   );

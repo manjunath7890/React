@@ -25,7 +25,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={isActive}
       style={{
-        backgroundColor: isActive ? "#01ffff" : "transparent",
+        backgroundColor: isActive ? `${colors.greenAccent[500]}` : "transparent",
         // border:  isActive ?'1px solid #666666': "transparent",
         // borderRadius:'10px',
         color: colors.grey[100],
@@ -59,7 +59,7 @@ const Sidebar = (props) => {
           padding: "5px 20px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#01ffff !important",
+          color: `${colors.greenAccent[500]} !important`,
         },
         "& .pro-menu-item.active": {
           color: "#000000 !important",

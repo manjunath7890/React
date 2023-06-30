@@ -9,13 +9,15 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DatePickerValue from "../../components/DataDownload";
 
 
-const Topbar = () => { 
+const Topbar = (props) => { 
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
 
+  console.log(props.user);
+
   return (
     <Box display="flex" justifyContent="space-between" p={2} borderBottom={'0px solid grey'}>
-      <DatePickerValue />
+      <DatePickerValue user={props.user}/>
       <Box display="flex" justifyContent="space-between" alignItems="center" paddingBottom={'-10px'}>
       </Box>
 

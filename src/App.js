@@ -26,8 +26,8 @@ function App() {
   useEffect(() => {
     if (data1 && location.pathname === "/dashboard") {
       async function fetchData() {
-        const response = await fetch(`https://mernserver-ep5w.onrender.com/getdata?user=${data1}`);
-        // const response = await fetch(`http://localhost:4000/getdata?user=jjjj`);
+        const response = await fetch(`https://telematicsserer.onrender.com/getdata?user=${data1}`);
+        // const response = await fetch(`http://localhost:4000/getdata?user=${data1}`);
 
         const result = await response.json();
         setData(result);
@@ -50,7 +50,7 @@ function App() {
         <div className="app">
           {shouldShowSidebar && <Sidebar isSidebar={isSidebar} data={data} />}
           <main className="content">
-            {shouldShowTopbar && <Topbar setIsSidebar={setIsSidebar} />}
+            {shouldShowTopbar && <Topbar setIsSidebar={setIsSidebar} user ={data1}/>}
             <Routes>
               <Route path="/" element={<Login data={data} onLogin={handleDataFromChild}/>} />
               <Route path="/dashboard" element={<Dashboard data={data} />} />

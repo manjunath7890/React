@@ -6,12 +6,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Xlsx from "./DownloadXlsx";
 
-export default function DatePickerValue() {
+export default function DatePickerValue(props) {
 
   const currentDate = new Date();  
   const [value, setValue] = React.useState(dayjs(currentDate)); 
   const downloaddate = value.format('YYYY-MM-DD');
-  console.log(downloaddate);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -21,7 +20,7 @@ export default function DatePickerValue() {
           value={value}
           onChange={(newValue) => setValue(newValue)}
         />
-        <Xlsx  fileName={downloaddate} />
+        <Xlsx  fileName={downloaddate} user={props.user}/>
       </DemoContainer>
       
     </LocalizationProvider>
