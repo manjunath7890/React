@@ -67,6 +67,7 @@ const LineChart = (props) => {
     },
     stroke: {
       curve: "smooth",
+      width: 2
     },
     title: {
       text: "Line Chart",
@@ -174,6 +175,7 @@ const LineChart = (props) => {
     },
     stroke: {
       curve: "smooth",
+      width: 2
     },
     title: {
       text: "Line Chart",
@@ -319,14 +321,14 @@ const LineChart = (props) => {
         options={options1}
         series={series1}
         type="line"
-        height={180}
+        height={200}
         width='100%'
       />
       <ReactApexChart
         options={options2}
         series={series2}
         type="line"
-        height={180}
+        height={200}
         width='100%'
       />
     </div>

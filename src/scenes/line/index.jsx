@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const App = () => {
+const App = (props) => {
   const [variables, setVariables] = useState(['', '', '', '', '', '']);
   const lineColors = [
     '#008ffb', 
@@ -39,7 +39,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://mernserver-ep5w.onrender.com/api/brush?fileName=${downloaddate}`
+          `https://telematicsserer.onrender.com/api/brush?fileName=${downloaddate}&userName=${props.user}`
         );
 
         const jsonData = await response.json();
@@ -51,7 +51,7 @@ const App = () => {
     };
 
     fetchData();
-  }, [downloaddate]);
+  }, [downloaddate, props.user]);
 
   return (
     <>

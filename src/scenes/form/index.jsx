@@ -10,7 +10,7 @@ const Form = () => {
 
   const navigate  =  useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
-  const host = 'https://mernserver-ep5w.onrender.com'
+  const host = 'https://telematicsserer.onrender.com'
 
   
   const handleFormSubmit = async (values) => {

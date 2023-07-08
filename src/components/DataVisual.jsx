@@ -7,8 +7,8 @@ const Visual = (props) => {
 
   return (
     <Box
-    border={'1px solid #5b5b5b'}
-    m={'5px 5px'}
+    border={'1px solid #014d50'}
+    m={'2px 2px'}
     p={'2px 10px'}
     bgcolor={colors.primary[500]}
     width={'100%'}

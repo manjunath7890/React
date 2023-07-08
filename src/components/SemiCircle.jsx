@@ -19,19 +19,11 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
 
   const chartOptions = {
     chart: {
-      height: 270,
+      height: 290,
       type: "radialBar",
       offsetY: -10,
       sparkline: {
         enabled: true,
-      },
-      dropShadow: {
-        enabled: true,
-        top: 3,
-        left: 0,
-        blur: 2,
-        opacity: 0.3,
-        color: "#888",
       },
     },
     plotOptions: {
@@ -40,30 +32,22 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
         endAngle: 120,
         hollow: {
           margin: 0,
-          size: "60%",
+          size: "65%",
           background: "transparent",
           image: undefined,
-          dropShadow: {
-            enabled: true,
-            top: 0,
-            left: 0,
-            blur: 3,
-            opacity: 1,
-            // color: "#888888",          
-          },
         },
         track: {
           background: colorBlue,
           strokeWidth: "100%",
           margin: 0,
-          dropShadow: {
-            enabled: true,
-            top: 3,
-            left: 0,
-            blur: 2,
-            opacity: 0.1,
-            color: "#aaa",
-          },
+          // dropShadow: {
+          //   enabled: true,
+          //   top: 3,
+          //   left: 0,
+          //   blur: 2,
+          //   opacity: 0.01,
+          //   color: "#0ff",
+          // },
         },
         dataLabels: {
           show: true,
@@ -71,7 +55,8 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
             show: true,
             offsetY: 50,
             color: colorGreen,
-            fontSize: "20px",
+            fontWeight: "boold",
+            fontSize: "25px",
           },
           value: {
             formatter: function () {

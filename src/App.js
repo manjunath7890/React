@@ -33,7 +33,7 @@ function App() {
         setData(result);
       }
   
-      const intervalId = setInterval(fetchData, 2000);
+      const intervalId = setInterval(fetchData, 500);
       fetchData();
   
       return () => clearInterval(intervalId);
@@ -55,9 +55,9 @@ function App() {
               <Route path="/" element={<Login data={data} onLogin={handleDataFromChild}/>} />
               <Route path="/dashboard" element={<Dashboard data={data} />} />
               <Route path="/form" element={<Form />} />
-              <Route path="/line" element={<Line />} />
+              <Route path="/line" element={<Line user ={data1}/>} />
               <Route path="/faq" element={<Faq data={data}/>} />
-              <Route path="/bar" element={<BAR />} />
+              <Route path="/bar" element={<BAR user ={data1}/>} />
               
             </Routes>
           </main>

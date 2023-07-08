@@ -20,7 +20,7 @@ const Xlsx = (props) => {
     return (
         <div>
             <button style={{ background:'none', border: '1px solid #686868', borderRadius:'4px'}} onClick={downloadXlsx}>
-                <FileDownloadOutlinedIcon style={{color: '#4cceac'}}/>
+                <FileDownloadOutlinedIcon style={{color: '#00ffff'}}/>
             </button>
         </div>
     );

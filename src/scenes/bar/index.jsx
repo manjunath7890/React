@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function ApexBrushChart() {
+function ApexBrushChart(props) {
   const currentDate = new Date();
   const [value, setValue] = useState(dayjs(currentDate));
   const downloaddate = dayjs(value).format('YYYY-MM-DD');
@@ -29,7 +29,7 @@ function ApexBrushChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://mernserver-ep5w.onrender.com/api/brush?fileName=${downloaddate}`);
+        const response = await fetch(`https://telematicsserer.onrender.com/api/brush?fileName=${downloaddate}userName=${props.user}`);
         const jsonData = await response.json();
         setData(jsonData);
         console.log(jsonData);

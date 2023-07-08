@@ -33,7 +33,7 @@ const StatBox = (props) => {
             sx={{ color: colors.grey[100] ,marginBottom:'-10px', mt:'30px'}}
           >
              <BrightnessAutoIcon style={{color: colors.greenAccent[500]}}/>
-             {' '}
+             {'\u00A0'}
              {Math.floor(props.d && props.d.var16)}
              <Box fontSize="25px" fontWeight={20} component="span" ml={0.5} mt={1.5}>
               .{(((props.d && props.d.var16) % 1).toFixed(2)).toString().split('.')[1]}
@@ -43,8 +43,8 @@ const StatBox = (props) => {
 
           <Typography 
             fontSize={'20px'} 
-            color={colors.grey[100]}
-            mb={'0px'}
+            color={colors.grey[300]}
+            mb={'5px'}
           >
             <BoltIcon style={{color: colors.greenAccent[500]}}/>
             {' '}
@@ -54,11 +54,11 @@ const StatBox = (props) => {
           <Typography 
             fontSize={'13px'} 
             sx={{ color: colors.grey[100] }}
-            boxShadow= {"0 2px 3px rgba(110, 110, 110)"}
-            padding={'5px 10px'}
+            boxShadow= {"0 1px 5px #000"}
+            padding={'0px 5px 0px 0px'}
             marginRight={'25px'}
             alignItems={'center'}
-            justifyContent={'center'}
+            // justifyContent={'center'}
           >
             <TempModal   color={colors.greenAccent[500]} value={(props.d && props.d)}/>  
           </Typography>
@@ -74,3 +74,5 @@ const StatBox = (props) => {
 };
 
 export default StatBox;
+// 400: "#212225",
+// 500: "#141517",
