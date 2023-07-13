@@ -18,6 +18,8 @@ const StatBox = (props) => {
           <Typography
             sx={{ color: colors.greenAccent[500] }}
             display={'flex'}
+            fontWeight={'bold'}
+            fontSize={'16px'}
           >
           {props.icon}
           {' '}
@@ -35,7 +37,7 @@ const StatBox = (props) => {
              <BrightnessAutoIcon style={{color: colors.greenAccent[500]}}/>
              {'\u00A0'}
              {Math.floor(props.d && props.d.var16)}
-             <Box fontSize="25px" fontWeight={20} component="span" ml={0.5} mt={1.5}>
+             <Box fontSize="25px" fontWeight={1000} component="span" ml={0.5} mt={1.5}>
               .{(((props.d && props.d.var16) % 1).toFixed(2)).toString().split('.')[1]}
              </Box>
           
@@ -47,14 +49,14 @@ const StatBox = (props) => {
             mb={'5px'}
           >
             <BoltIcon style={{color: colors.greenAccent[500]}}/>
-            {' '}
+            {'\u00A0'}{'\u00A0'}
             {(props.d && props.d.var15)}
           </Typography>
 
           <Typography 
             fontSize={'13px'} 
             sx={{ color: colors.grey[100] }}
-            boxShadow= {"0 1px 5px #000"}
+            boxShadow= {"0 1px 5px #088"}
             padding={'0px 5px 0px 0px'}
             marginRight={'25px'}
             alignItems={'center'}
@@ -64,9 +66,9 @@ const StatBox = (props) => {
           </Typography>
         </Box>
 
-        <Box mr={'5px'} mt={'1px'}> 
+        <Box mr={'10px'} mt={'0px'}> 
           <Modall  data={props.icon} color={colors.greenAccent[500]} voltage={(props.d && props.d)}/>  
-          <ProgressCircle progress={(props.d && props.d.var17)/100}  size={120} />
+          <ProgressCircle progress={(props.d && props.d.var17)/100}  size={105} />
         </Box>
       </Box>
     </Box>

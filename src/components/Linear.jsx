@@ -1,32 +1,54 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import Chart from 'chart.js/auto';
 
-const LinearGauge = ({ value, min, max, width, height, color1, color2 }) => {
-  const calculatePercentage = (value, min, max) => {
-    return ((value - min) / (max - min)) * 100;
-  };
+const QuarteredCircularGauge = ({ value, maxValue }) => {
+  const chartContainerRef = useRef(null);
 
-  const gaugeStyle = {
-    width: `${height}%`,
-    height: `${width}px`,
-    backgroundColor: color2,
-    borderRadius: '10px',
-    overflow: 'hidden',
-    marginBottom:'10px'
-  };
+  useEffect(() => {
+    const ctx = chartContainerRef.current.getContext('2d');
 
-  const progressStyle = {
-    width: `${calculatePercentage(value, min, max)}%`,
-    height: '100%',
-    backgroundColor: color1,
-    transition: 'width 0.5s ease',
-  };
+    if (chartContainerRef.current.chart) {
+      chartContainerRef.current.chart.destroy();
+    }
+
+    chartContainerRef.current.chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            data: [value, maxValue - value],
+            backgroundColor: ['aqua', 'transparent'],
+            borderWidth: 0,
+          },
+        ],
+      },
+      options: {
+        cutout: '70%',
+        rotation: -Math.PI / 2,
+        circumference: Math.PI / 2,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        elements: {
+          arc: {
+            borderWidth: 0,
+          },
+        },
+      },
+    });
+  }, [value, maxValue]);
 
   return (
-    <div style={gaugeStyle}>
-      <div style={progressStyle}></div>
-      <div style={progressStyle}></div>
+    <div>
+      <canvas ref={chartContainerRef} />
     </div>
   );
 };
 
-export default LinearGauge;
+export default QuarteredCircularGauge;

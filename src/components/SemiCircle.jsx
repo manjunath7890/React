@@ -1,11 +1,16 @@
 import React, { useRef, useEffect } from "react";
 import Chart from "react-apexcharts";
-// import { Box, useTheme } from "@mui/material";
 
-
-const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorGreen, maxValue = 45, label }) => {
+const SemiCircleRadialGauge = ({
+  val = 0,
+  value = 0,
+  colorBlue,
+  colorGrey,
+  colorGreen,
+  maxValue = 45,
+  label,
+}) => {
   const chartRef = useRef(null);
-
 
   useEffect(() => {
     const chart = chartRef.current.chart;
@@ -19,11 +24,19 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
 
   const chartOptions = {
     chart: {
-      height: 290,
+      height: 230,
       type: "radialBar",
       offsetY: -10,
       sparkline: {
         enabled: true,
+      },
+      dropShadow: {
+        enabled: true,
+        top: 0,
+        left: 0,
+        blur: 7,
+        opacity: 0.45,
+        color: "#00dddd", // Aqua Blue
       },
     },
     plotOptions: {
@@ -36,18 +49,11 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
           background: "transparent",
           image: undefined,
         },
+        
         track: {
           background: colorBlue,
           strokeWidth: "100%",
           margin: 0,
-          // dropShadow: {
-          //   enabled: true,
-          //   top: 3,
-          //   left: 0,
-          //   blur: 2,
-          //   opacity: 0.01,
-          //   color: "#0ff",
-          // },
         },
         dataLabels: {
           show: true,
@@ -56,18 +62,17 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
             offsetY: 50,
             color: colorGreen,
             fontWeight: "boold",
-            fontSize: "25px",
+            fontSize: "20px",
           },
           value: {
             formatter: function () {
-                return parseInt(val*10).toFixed(0);
+              return parseInt(val * 10).toFixed(0);
             },
             show: true,
             color: colorGrey,
             fontSize: "50px",
             fontWeight: "bold",
             offsetY: -10,
-            
           },
         },
       },
@@ -75,7 +80,7 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
     fill: {
       type: "gradient",
       gradient: {
-        shade: "light",
+        shade: "dark",
         type: "horizontal",
         shadeIntensity: 0.5,
         gradientToColors: [colorGreen],
@@ -101,17 +106,15 @@ const SemiCircleRadialGauge = ({val = 0, value = 0, colorBlue, colorGrey, colorG
   };
 
   return (
-    <div >
-    {/* <div style={{marginTop:'15px', marginLeft:'20px'}}> */}
-
-    <Chart
-      options={chartOptions}
-      series={chartOptions.series}
-      type={chartOptions.chart.type}
-      height={chartOptions.chart.height}
-      width={"100%"}
-      ref={chartRef}
-    />
+    <div>
+      <Chart
+        options={chartOptions}
+        series={chartOptions.series}
+        type={chartOptions.chart.type}
+        height={chartOptions.chart.height}
+        width={"100%"}
+        ref={chartRef}
+      />
     </div>
   );
 };

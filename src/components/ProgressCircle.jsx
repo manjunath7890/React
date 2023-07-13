@@ -12,7 +12,7 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
         position: "relative",
         width: `${size}px`,
         height: `${size}px`,
-        perspective: "1000px", // Add perspective for 3D effect
+        perspective: "1000px",
       }}
     >
       <Box
@@ -20,16 +20,14 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           position: "absolute",
           top: "0",
           left: "0",
-          background: `radial-gradient(${colors.primary[500]} 50%, transparent 52%),
-            conic-gradient(transparent 0deg ${angle}deg, ${colors.primary[400]} ${angle}deg 360deg),
+          background: `radial-gradient(${colors.primary[300]} 50%, transparent 52%),
+            conic-gradient(transparent 0deg ${angle}deg, ${colors.primary[200]} ${angle}deg 360deg),
             ${colors.greenAccent[500]}`,
           borderRadius: "50%",
           width: "100%",
           height: "100%",
-          // transform: "rotateX(60deg) rotateZ(45deg)", // Apply 3D rotations
-          // boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)", // Add a shadow effect
-          boxShadow: "0 5px 10px #000"
-        
+          boxShadow: "0 0px 10px 1px #0ff",
+          animation: "rotation 2s linear infinite", // Add animation
         }}
       />
       <Typography
@@ -40,7 +38,7 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           color: theme.palette.text.primary,
-          fontSize: "1.5rem", // Increase the font size as desired
+          fontSize: "1.5rem",
         }}
       >
         {`${Math.round(progress * 100)}%`}

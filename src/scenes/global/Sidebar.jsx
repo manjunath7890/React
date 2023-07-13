@@ -115,7 +115,7 @@ const Sidebar = (props) => {
                   {props.data.var54}
                 </Typography>
 
-                <Typography fontSize={'15px'} color={colors.blueAccent[500]}>
+                <Typography fontSize={'15px'} color={colors.greenAccent[500]}>
                   {props.data.var55}
                 </Typography>
               </Box>
