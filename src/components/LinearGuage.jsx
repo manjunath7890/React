@@ -38,9 +38,9 @@ const LinearGauge = (props) => {
         },
         scales: {
           x: {
-            display: true,
+            display: props.xAxis,
             min: 0,
-            max: 200,
+            max: props.max,
             grid: {
               color: 'aqua',
             },
@@ -49,7 +49,7 @@ const LinearGauge = (props) => {
             },
           },
           y: {
-            display: true,
+            display: props.yAxis,
             grid: {
               color: 'aqua', 
             },

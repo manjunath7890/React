@@ -74,7 +74,7 @@ function SwitchToggle() {
   }, [switchValue]);
 
   return (
-    <div style={{width:'100px', marginTop:'15px', marginLeft:'10px'}}>
+    <div style={{width:'100px', marginTop:'5px', marginLeft:'10px'}}>
       <CustomSwitch
         checked={switchValue}
         onChange={handleSwitchChange}

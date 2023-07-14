@@ -9,6 +9,8 @@ const SemiCircleRadialGauge = ({
   colorGreen,
   maxValue = 45,
   label,
+  endAngle,
+  startAngle = -120
 }) => {
   const chartRef = useRef(null);
 
@@ -41,8 +43,8 @@ const SemiCircleRadialGauge = ({
     },
     plotOptions: {
       radialBar: {
-        startAngle: -120,
-        endAngle: 120,
+        startAngle: startAngle,
+        endAngle: endAngle,
         hollow: {
           margin: 0,
           size: "65%",

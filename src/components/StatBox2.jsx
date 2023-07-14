@@ -24,11 +24,12 @@ const StatBox = (props) => {
         colorBlue={colors.primary[200]}
         colorGrey={colors.grey[100]}
         colorGreen={colors.greenAccent[500]}
+        endAngle={120}
       />
      <Box display={'flex'} >
       <Box
         color={colors.grey[100]}
-        fontSize="22px"
+        fontSize="20px"
         marginTop="-1rem"
         fontWeight="600"
         display="flex"
@@ -45,7 +46,7 @@ const StatBox = (props) => {
       </Box>
       <Box
         color={colors.grey[100]}
-        fontSize="22px"
+        fontSize="20px"
         marginTop="-1rem"
         fontWeight="600"
         display="flex"

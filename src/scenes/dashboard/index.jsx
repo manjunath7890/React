@@ -9,6 +9,7 @@ import StatBox from "../../components/StatBox";
 import StatBox2 from "../../components/StatBox2";
 import GoogleMap from "../../components/Map";
 import SwitchExample from "../../components/Switch";
+import SemiCircleRadialGauge from "../../components/SemiCircle";
 import MapModal from "../../components/MapModal";
 import {
   Grid,
@@ -21,6 +22,8 @@ import {
 // import Visual from "../../components/DataVisual";
 import TemperatureGauge from "../../components/TempGauge";
 import Lineargauge from "../../components/LinearGuage";
+import Modes from "../../components/Mode";
+import Table from "../../components/Table";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -116,6 +119,7 @@ const Dashboard = (props) => {
       <Grid >
         <Card className={classes.card} style={styles}>
           <CardContent>
+            <Table/>
           </CardContent>
         </Card>
       </Grid>
@@ -126,15 +130,21 @@ const Dashboard = (props) => {
           <Grid item xs={12} sm={12} md={12} style={{display:'flex'}}>
             <Grid item xs={12} sm={6} md={6} style={{marginRight:'15px'}}>
             <Card className={[classes.card, classes.card3]} style={styles}>
-              <CardContent style={{padding:'10px 0px'}}>
-
+              <CardContent style={{padding:'5px 5px'}}>
+                <SwitchExample />
+                <Modes data={props.data} height={'5.6rem'}/>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <Card className={[classes.card, classes.card3]} style={styles}>
               <CardContent style={{padding:'10px 0px'}}>
-                
+              <Box display="flex" m={'15px 5px 0px 5px'} color={colors.greenAccent[500]} justifyContent={'space-evenly'}>
+                <Lineargauge data={props.data.var11} label={'C-temperature'} index={'x'} width={'82px'} height={'100%'} yAxis={true} xAxis={true} max={100}/>
+                <Lineargauge data={props.data.var11} label={'C-temperature'} index={'x'} width={'82px'} height={'100%'} yAxis={true} xAxis={true} max={100}/>
+
+                <Lineargauge data={props.data.var12} label={'M-temperature'} index={'x'} width={'85px'} height={'100%'} yAxis={true} xAxis={true} max={180}/>
+              </Box>
               </CardContent>
             </Card>
           </Grid>
@@ -152,9 +162,19 @@ const Dashboard = (props) => {
             <Grid item xs={12} sm={6} md={12} style={{display:'flex'}}>
             <Grid item xs={12} sm={6} md={6} style={{marginRight:'15px'}}>
             <Card className={[classes.card, classes.card3]} style={styles}>
-              <CardContent style={{padding:'10px 0px'}}>
+              <CardContent style={{padding:'5px 5px'}}>
                 <SwitchExample />
-                <Linear value={30}/>
+                <Modes data={props.data} height={'5.6rem'}/>
+                {/* <SemiCircleRadialGauge
+                  val={(props.data.var4) / 10}
+                  value={(props.data.var17)}
+                  label={`${props.data.var9}`}
+                  colorBlue={colors.primary[200]}
+                  colorGrey={colors.grey[100]}
+                  colorGreen={colors.greenAccent[500]}
+                  startAngle={-90}
+                  endAngle={0}                 
+                /> */}
               </CardContent>
             </Card>
           </Grid>
@@ -162,8 +182,9 @@ const Dashboard = (props) => {
             <Card className={[classes.card, classes.card3]} style={styles}>
               <CardContent style={{padding:'10px 0px'}}>
               <Box display="flex" m={'15px 5px 0px 5px'} color={colors.greenAccent[500]} justifyContent={'space-evenly'}>
-                <Lineargauge data={props.data.var11} label={'C-temperature'} index={'x'} width={'82px'} height={'100%'}/>
-                <Lineargauge data={props.data.var12} label={'M-temperature'} index={'x'} width={'85px'} height={'100%'}/>
+                <Lineargauge data={props.data.var12} label={'M-temperature'} index={'x'} width={'85px'} height={'100%'} yAxis={true} xAxis={true} max={180}/>
+                <Lineargauge data={props.data.var11} label={'C-temperature'} index={'x'} width={'82px'} height={'100%'} yAxis={true} xAxis={true} max={100}/>
+                <Lineargauge data={props.data.var11} label={'A-temperature'} index={'x'} width={'82px'} height={'100%'} yAxis={true} xAxis={true} max={50}/>
               </Box>
               </CardContent>
             </Card>
