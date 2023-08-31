@@ -50,31 +50,32 @@ const Sidebar = (props) => {
     <Box 
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[500]} !important`,
+          background: `${colors.primary[400]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 20px 5px 20px !important",
+          padding: "5px 15px 5px 15px !important",
         },
         "& .pro-inner-item:hover": {
           color: `${colors.greenAccent[500]} !important`,
         },
         "& .pro-menu-item.active": {
           color: "#000000 !important",
-          boxShadow: "0 3px 2px rgba(123, 123, 123, 1)",
+          // boxShadow: "0 3px 12px rgba(0, 200, 200)",
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed} width={'200px'}>
+      <ProSidebar collapsed={isCollapsed} width={'190px'}>
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "10px 0 10px 0",
               color: colors.grey[100],
+              // fontSize:'200px'
             }}
           >
             {!isCollapsed && (
@@ -82,7 +83,8 @@ const Sidebar = (props) => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                ml="5px"
+                // fontSize={'20px'}
+                // ml="5px"
               >
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -115,14 +117,17 @@ const Sidebar = (props) => {
                   {props.data.var54}
                 </Typography>
 
-                <Typography fontSize={'15px'} color={colors.greenAccent[500]}>
+                <Typography 
+                  fontSize={'15px'} 
+                  color={colors.greenAccent[500]}
+                >
                   {props.data.var55}
                 </Typography>
               </Box>
             </Box>
           )}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box padding={isCollapsed ? '0 10% ' : "0  0 5%  2%  "}>
             <Item
               title="Dashboard"
               to="/dashboard"
@@ -138,7 +143,7 @@ const Sidebar = (props) => {
               setSelected={setSelected}
             />
             <Item
-              title="FAQ Page"
+              title="Trail"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}

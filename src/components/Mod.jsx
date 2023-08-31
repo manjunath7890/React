@@ -7,13 +7,13 @@ const Mod = (props) => {
 
   return (
     <Box
-    border={'1px solid #014d50'}
-    m={'0px 10px'}
+    border={`1px solid ${colors.greenAccent[100]}`}
+    m={'0px 2px'}
     p={'0px 10px'}
     bgcolor={props.bg}
-    boxShadow={'0px 0px 5px #099'}
+    // boxShadow={'0px 0px 35px 1px #ddd'}
     width={'100%'}
-    borderRadius={'5px'}
+    borderRadius={props.bgRadius}
     display="flex"
     flexDirection="column"
     alignItems="center"

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Switch from '@mui/material/Switch';
 import { withStyles } from '@mui/styles';
-// import { useTheme } from "@mui/material";
-// import { tokens } from "../theme";
+import { colors } from '@mui/material';
+import { useTheme } from "@mui/material";
+import { tokens } from "../theme";
 const CustomSwitch = withStyles({
   root: {
     width: 100,
@@ -15,7 +16,7 @@ const CustomSwitch = withStyles({
       transform: 'translateX(40px)',
       color: '#fff',
       '& + $track': {
-        backgroundColor: '#00ffff',
+        backgroundColor: '#00d8dd',
         opacity: 1,
         border: 'none',
       },
@@ -36,8 +37,8 @@ const CustomSwitch = withStyles({
 
 function SwitchToggle() {
   const [switchValue, setSwitchValue] = useState(true);
-  // const theme = useTheme();
-  // const colors = tokens(theme.palette.mode);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   // const color = colors.greenAccent[500];
   const handleSwitchChange = (event) => {
     const newValue = event.target.checked;
@@ -74,12 +75,14 @@ function SwitchToggle() {
   }, [switchValue]);
 
   return (
-    <div style={{width:'100px', marginTop:'5px', marginLeft:'10px'}}>
+    <div style={{width:'100px', marginTop:'5px', marginLeft:'15px'}}>
+      <div style={{marginLeft:'1.3rem', color:colors.grey[800]}}>Ignition:</div>
       <CustomSwitch
         checked={switchValue}
         onChange={handleSwitchChange}
         inputProps={{ 'aria-label': 'Switch demo' }} 
         // colors={color}
+        style={{marginLeft:'0'}}
       />
     </div>
   );

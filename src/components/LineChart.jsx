@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import ApexCharts from "apexcharts";
-// import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
+import { tokens } from "../theme";
 
 const XAXISRANGE = 60000;
 
@@ -10,6 +11,9 @@ let  y1Data1 = 0;
 
 
 const LineChart = (props) => {
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   y1Data1 = parseInt(props.data.var4);
   const colorGreen = props.color.green;
@@ -43,7 +47,7 @@ const LineChart = (props) => {
         enabled: false,
       },
     },
-    colors: [colorBlue],
+    colors: [colors.greenAccent[500]],
     dataLabels: {
       enabled: false,
     },
@@ -55,7 +59,7 @@ const LineChart = (props) => {
       text: "Line Chart",
       align: "left",
       style: {
-        color: colorBlue, 
+        color: colors.greenAccent[500], 
         fontSize: '14px' 
       }
     },
@@ -70,7 +74,7 @@ const LineChart = (props) => {
           return new Date(timestamp).toLocaleTimeString('en-IN');
         },
         style: {
-          colors: colorGreen 
+          colors: colors.grey[100] 
         }
       },
     },

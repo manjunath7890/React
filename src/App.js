@@ -8,7 +8,8 @@ import Line from "./scenes/line";
 import Faq from "./scenes/faq";
 import BAR from "./scenes/bar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
+import { ColorModeContext, useMode, tokens } from "./theme";
+
 
 import Login from "./scenes/form/login";
 
@@ -18,6 +19,7 @@ function App() {
   const [data, setData] = useState([]);
   const location = useLocation();
   const [data1, setData1] = useState();
+  const colors = tokens(theme.palette.mode);
 
   function handleDataFromChild(childData) {
     setData1(childData);
@@ -33,7 +35,7 @@ function App() {
         setData(result);
       }
   
-      const intervalId = setInterval(fetchData, 500);
+      const intervalId = setInterval(fetchData, 5);
       fetchData();
   
       return () => clearInterval(intervalId);
@@ -48,8 +50,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          {shouldShowSidebar && <Sidebar isSidebar={isSidebar} data={data} />}
-          <main className="content">
+          {shouldShowSidebar && <Sidebar isSidebar={isSidebar} data={data}/>}
+          <main className="content" style={{background:colors.greenAccent[400]}}>
             {shouldShowTopbar && <Topbar setIsSidebar={setIsSidebar} user ={data1}/>}
             <Routes>
               <Route path="/" element={<Login data={data} onLogin={handleDataFromChild}/>} />

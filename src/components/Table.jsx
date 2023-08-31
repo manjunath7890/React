@@ -1,46 +1,62 @@
 import React from 'react';
-import { Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
+import { Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@material-ui/core';
+import { tokens } from "../theme";
+import { useTheme} from "@mui/material";
 
-function MyTable() {
+const useStyles = makeStyles({
+  tableContainer: {
+    height: '100%',
+    width: '100%',
+    // margin:'-1rem',
+    // border: '1px solid #077',
+    background: '#000',
+    borderRadius:'2.5rem',
+    // boxShadow: '0 0  20px 0px #8357fe'
+  },
+  table: {
+    // width: 1000,
+  },
+  tableRow: {
+    '& > *': {
+      padding: '6px 20px',
+      borderBottom: '1px solid #4117b7',
+      
+    },
+  },
+  tableCell: {
+    color: 'white',
+  
+  },
+});
+
+function MyTable(props) {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const classes = useStyles();
+
+  // Define table data
+  const data = [
+    { name: 'Gradient', value: props.var5 },
+    { name: 'Ambient temperature', value: 32 },
+    { name: 'controller health', value: 0 },
+    { name: 'Lattitude', value: 13.575468 },
+    { name: 'Longitude', value: 77.652434 },
+  ];
+
   return (
-    <div style={{ width: '21rem', height: '10.2rem', overflow: 'auto' }}>
-      <Table sx={{ border: '1px solid #0ff' }}>
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Column 1</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Column 2</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Column 3</TableCell>
-          </TableRow>
-        </TableHead>
+    <TableContainer component={Paper} className={classes.tableContainer}>
+      <Table className={classes.table} aria-label="simple table">
         <TableBody>
-          <TableRow sx={{ width: '100px', height: '30px' }}>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 1</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 1</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 1</TableCell>
-          </TableRow>
-          <TableRow sx={{ width: '100px', height: '30px' }}>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 2</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 2</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 2</TableCell>
-          </TableRow>
-          <TableRow sx={{ width: '100px', height: '30px' }}>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 3</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 3</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 3</TableCell>
-          </TableRow>
-          <TableRow sx={{ width: '100px', height: '30px' }}>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 4</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 4</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 4</TableCell>
-          </TableRow>
-          <TableRow sx={{ width: '100px', height: '30px' }}>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 5</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 5</TableCell>
-            <TableCell sx={{ border: '1px solid #0ff' }}>Row 5</TableCell>
-          </TableRow>
+          {data.map((row, index) => (
+            <TableRow key={index} className={classes.tableRow}>
+              <TableCell className={classes.tableCell}>{row.name}</TableCell>
+              <TableCell className={classes.tableCell}>{row.value}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
-    </div>
+    </TableContainer>
   );
 }
 

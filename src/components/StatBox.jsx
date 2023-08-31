@@ -5,6 +5,7 @@ import { tokens } from "../theme";
 import ProgressCircle from "./ProgressCircle";
 import Modall from "./StatBoxModal";
 import TempModal from "./ModalTemperature";
+// import CircleRadialGauge from "./CircleRadialGauge";
 
 const StatBox = (props) => {
   const theme = useTheme();
@@ -28,16 +29,16 @@ const StatBox = (props) => {
         
           
           <Typography
-            fontSize={'40px'}
-            fontWeight="bold"
+            fontSize={'30px'}
+            // fontWeight="bold"
             display={'flex'}
             alignItems={'center'}
-            sx={{ color: colors.grey[100] ,marginBottom:'-10px', mt:'30px'}}
+            sx={{ color: colors.grey[100] ,marginBottom:'-3px', mt:'30px'}}
           >
              <BrightnessAutoIcon style={{color: colors.greenAccent[500]}}/>
              {'\u00A0'}
              {Math.floor(props.d && props.d.var16)}
-             <Box fontSize="25px" fontWeight={1000} component="span" ml={0.5} mt={1.5}>
+             <Box fontSize="15px" fontWeight={100} component="span" ml={0.5} mt={1}>
               .{(((props.d && props.d.var16) % 1).toFixed(2)).toString().split('.')[1]}
              </Box>
           
@@ -56,19 +57,34 @@ const StatBox = (props) => {
           <Typography 
             fontSize={'13px'} 
             sx={{ color: colors.grey[100] }}
-            boxShadow= {"0 1px 5px #088"}
+            // boxShadow= {"0 1px 5px #088"}
             padding={'0px 5px 0px 0px'}
             marginRight={'25px'}
             alignItems={'center'}
             // justifyContent={'center'}
           >
-            <TempModal   color={colors.greenAccent[500]} value={(props.d && props.d)}/>  
+            {/* <TempModal   color={colors.greenAccent[500]} value={(props.d && props.d)}/>   */}
           </Typography>
         </Box>
 
         <Box mr={'10px'} mt={'0px'}> 
           <Modall  data={props.icon} color={colors.greenAccent[500]} voltage={(props.d && props.d)}/>  
-          <ProgressCircle progress={(props.d && props.d.var17)/100}  size={105} />
+          {/* <CircleRadialGauge
+          val={(props.d.var17) / 10}
+          value={(props.d.var17) }
+          label={`${props.d.var9}`}
+          colorBlue={colors.primary[200]}
+          colorGrey={colors.grey[100]}
+          colorGreen={colors.greenAccent[500]}
+          startAngle={0}
+          endAngle={360}
+          // width={50}
+          // height={140}
+         /> */}
+         {/* <SemiCircleRadialGauge */}
+          <Box mt={'1rem'}>
+            <ProgressCircle progress={(props.d && props.d.var17)/100}  size={95} />
+          </Box>
         </Box>
       </Box>
     </Box>

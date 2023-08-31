@@ -9,8 +9,9 @@ const SemiCircleRadialGauge = ({
   colorGreen,
   maxValue = 45,
   label,
-  endAngle,
-  startAngle = -120
+  endAngle = 110,
+  startAngle = -110,
+  height = 235,
 }) => {
   const chartRef = useRef(null);
 
@@ -19,26 +20,26 @@ const SemiCircleRadialGauge = ({
     if (chart && value <= maxValue) {
       chart.updateOptions({
         series: [value],
-        labels: [label],
+        labels: ['label'],
       });
     }
-  }, [value, maxValue, label]);
+  }, [value, maxValue, 'label']);
 
   const chartOptions = {
     chart: {
-      height: 230,
+      height: height,
       type: "radialBar",
       offsetY: -10,
       sparkline: {
         enabled: true,
       },
       dropShadow: {
-        enabled: true,
+        enabled: false,
         top: 0,
         left: 0,
         blur: 7,
         opacity: 0.45,
-        color: "#00dddd", // Aqua Blue
+        color: "#00d8dd", 
       },
     },
     plotOptions: {
@@ -47,7 +48,7 @@ const SemiCircleRadialGauge = ({
         endAngle: endAngle,
         hollow: {
           margin: 0,
-          size: "65%",
+          size: "64%",
           background: "transparent",
           image: undefined,
         },
@@ -62,9 +63,9 @@ const SemiCircleRadialGauge = ({
           name: {
             show: true,
             offsetY: 50,
-            color: colorGreen,
+            color: colorGrey,
             fontWeight: "boold",
-            fontSize: "20px",
+            fontSize: "15px",
           },
           value: {
             formatter: function () {
@@ -73,7 +74,7 @@ const SemiCircleRadialGauge = ({
             show: true,
             color: colorGrey,
             fontSize: "50px",
-            fontWeight: "bold",
+            fontWeight: "boold",
             offsetY: -10,
           },
         },
@@ -96,7 +97,7 @@ const SemiCircleRadialGauge = ({
       lineCap: "round",
       dashArray: 4,
     },
-    labels: [label],
+    labels: ['Speed'],
     series: [value],
     colors: [colorGreen],
     title: {

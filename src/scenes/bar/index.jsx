@@ -127,8 +127,8 @@ function ApexBrushChart(props) {
           </DemoContainer>
         </LocalizationProvider>
 
-        {[...Array(6)].map((_, index) => (
-          <Box sx={{ minWidth: 120, margin: '8px 5px' }} key={index}>
+        {[...Array(10)].map((_, index) => (
+          <Box sx={{ minWidth: 100, margin: '8px 2px' }} key={index}>
             <FormControl fullWidth>
               <InputLabel id={`variable-label-${index}`}>Variable {index + 1}</InputLabel>
               <Select
@@ -139,11 +139,16 @@ function ApexBrushChart(props) {
                 onChange={(event) => handleVariableChange(event, index)}
               >
                 <MenuItem value="">None</MenuItem>
-                <MenuItem value="var1">var1</MenuItem>
-                <MenuItem value="var2">var2</MenuItem>
-                <MenuItem value="var3">var3</MenuItem>
-                <MenuItem value="var4">var4</MenuItem>
-                <MenuItem value="var5">var5</MenuItem>
+                <MenuItem value="var1">speed</MenuItem>
+                <MenuItem value="var2">RPM</MenuItem>
+                <MenuItem value="var3">Gradient</MenuItem>
+                <MenuItem value="var4">distance</MenuItem>
+                <MenuItem value="var5">current1</MenuItem>
+                <MenuItem value="var6">current2</MenuItem>
+                <MenuItem value="var7">current3</MenuItem>
+                <MenuItem value="var8">current4</MenuItem>
+                <MenuItem value="var9">c-temperature</MenuItem>
+                <MenuItem value="var10">m-temperature</MenuItem>
               </Select>
             </FormControl>
           </Box>

@@ -16,10 +16,10 @@ const Topbar = (props) => {
   console.log(props.user);
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2} borderBottom={'0px solid grey'}>
+    <Box display="flex" justifyContent="space-between" p={'12px'} pl={2} borderBottom={'0px solid grey'}>
       <DatePickerValue user={props.user}/>
-      <Box display="flex" justifyContent="space-between" alignItems="center" paddingBottom={'-10px'}>
-      </Box>
+      {/* <Box display="flex" justifyContent="space-between" alignItems="center" paddingBottom={'-10px'}>
+      </Box> */}
 
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>

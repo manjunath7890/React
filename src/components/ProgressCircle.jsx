@@ -20,13 +20,13 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           position: "absolute",
           top: "0",
           left: "0",
-          background: `radial-gradient(${colors.primary[300]} 50%, transparent 52%),
+          background: `radial-gradient(${colors.primary[300]} 45%, transparent 47%),
             conic-gradient(transparent 0deg ${angle}deg, ${colors.primary[200]} ${angle}deg 360deg),
             ${colors.greenAccent[500]}`,
           borderRadius: "50%",
           width: "100%",
           height: "100%",
-          boxShadow: "0 0px 10px 1px #0ff",
+          // boxShadow: "0 0px 10px 1px #00d8dd",
           animation: "rotation 2s linear infinite", // Add animation
         }}
       />
@@ -37,11 +37,12 @@ const ProgressCircle = ({ progress = 0.5, size = 50 }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          color: theme.palette.text.primary,
+          color: colors.grey[100],
           fontSize: "1.5rem",
+          fontWeight:'bold'
         }}
       >
-        {`${Math.round(progress * 100)}%`}
+        {`${Math.round(progress * 100)}`}
       </Typography>
     </Box>
   );

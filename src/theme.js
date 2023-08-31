@@ -18,25 +18,28 @@ export const tokens = (mode) => ({
         },
         primary: {
           100: "#6870fa",
-          200: "#055",
-          300: "#002b2d",
+          200: "#333",
+          300: "#1e1e1e",
           // 400: "#101010",
-          500: "#011b20",
-          400: "#212225",
+          // 500: "#150633",
+          500: "#0d0d0d",
+          // 400: "#0c0025",
           // 500: "#141517",
           600: "#101624",
-          700: "#034b59",
+          700: "#232323",
           800: "#080b12",
           900: "#040509",
       },      
         greenAccent: {
-          100: "#6870fa",
-          200: "#b7ebde",
-          300: "#94e2cd",
-          400: "#70d8bd",
-          // 500: "#00ff7a",
-          500: "#00ffff",
-          600: "#34ffca",
+          100: "#444",
+          200: "0 2px 4px 2px #000",
+          // 200: "0 5px 7px 2px #000",
+          // 300: 'linear-gradient(150deg,#100031 10%, #4117b7 50%,#1c0152 92.98%)',
+          300: 'linear-gradient(150deg, rgb(17 17 17) 10%, rgb(33 33 33) 50%, rgb(39 39 39) 92.98%)',
+          // 400: "linear-gradient(150deg, rgb(10 10 10) 10%, rgb(50 50 50) 50%, rgb(16 16 16) 92.98%) rgb(0 0 0)",
+          400: "#111111",
+          500: "#00d8dd",
+          600: "#00b6bb",
           700: "#2e7c67",
           800: "#1e5245",
           900: "#0f2922",
@@ -57,16 +60,27 @@ export const tokens = (mode) => ({
           200: "#c3c6fd",
           300: "#a4a9fc",
           400: "#868dfb",
-          500: "#0d6efd",
+          500: "#00ffff",
           600: "#535ac8",
           700: "#3e4396",
           800: "#2a2d64",
           900: "#151632",
         },
+        // aqua: {
+        //   100: "#00aaaa",
+        //   200: "0 5px 7px 2px #0cc",
+        //   300: "#linear-gradient(150deg,rgb(0 30 30) 10%,rgb(0 255 255 / 20%) 50%,rgb(0 30 30) 92.98%)",
+        //   400: "#3da58a",
+        //   500: "#55ffff",
+        //   600: "#34ffca",
+        //   700: "#94e2cd",
+        //   800: "#b7ebde",
+        //   900: "#dbf5ee",
+        // },
       }
     : {
         grey: {
-          100: "#141414",
+          100: "#000",
           200: "#292929",
           300: "#3d3d3d",
           400: "#525252",
@@ -78,24 +92,25 @@ export const tokens = (mode) => ({
         },
         primary: {
           100: "#040509",
-          200: "#b5b5b5",
-          300: "#ddd",
+          200: "#ddd",
+          300: "#fff",
           400: "#ffffff", 
-          500: "#ffffff",
+          500: "linear-gradient(150deg, rgb(10 10 10) 10%, rgb(31 31 31) 50%, rgb(16 16 16) 92.98%) rgb(0 0 0)",
           600: "#1F2A40",
           700: "#ffffff",
           800: "#a1a4ab",
-          900: "#d0d1d5",
+          900: "linear-gradient(90deg, rgb(10 10 10) 10%, rgb(31 31 31) 50%, rgb(16 16 16) 92.98%)",
         },
+
         greenAccent: {
-          100: "#6870fa",
-          200: "#1e5245",
-          300: "#2e7c67",
-          400: "#3da58a",
-          500: "#00adff",
-          600: "#70d8bd",
+          100: "#ccc",
+          200: "rgb(200 200 200) 0px 2px 3px 0px",
+          300: "linear-gradient(150deg, rgb(250 250 250) 10%, rgb(240 240 240) 50%, rgb(225 230 230) 92.98%) rgb(0 0 0)",
+          400: "#ecf1f1",
+          500: "#00c4c9",
+          600: "#00b6bb",
           700: "#94e2cd",
-          800: "#b7ebde",
+          800: "linear-gradient(100deg, #fa8c16 , #00c4c9, #00c4c9)",
           900: "#dbf5ee",
         },
         orangeAccent: {
@@ -135,47 +150,47 @@ export const tokens = (mode) => ({
 });
 
 // mui theme settings
-export const themeSettings = (mode) => {
-  const colors = tokens(mode);
-  return {
-    palette: {
-      mode: mode,
-      ...(mode === "dark"
-        ? {
-            // palette values for dark mode
-            primary: {
-              main: colors.primary[500],
-            },
-            secondary: {
-              main: colors.greenAccent[500],
-            },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-            background: {
-              default: colors.primary[500],
-            },
-          }
-        : {
-            // palette values for light mode
-            primary: {
-              main: colors.primary[100],
-            },
-            secondary: {
-              main: colors.greenAccent[500],
-            },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-            background: {
-              default: "#fcfcfc",
-            },
-          }),
-    },
+  export const themeSettings = (mode) => {
+    const colors = tokens(mode);
+    return {
+      palette: {
+        mode: mode,
+        ...(mode === "dark"
+          ? {
+              // palette values for dark mode
+              primary: {
+                main: colors.primary[500],
+              },
+              secondary: {
+                main: colors.greenAccent[500],
+              },
+              neutral: {
+                dark: colors.grey[700],
+                main: colors.grey[500],
+                light: colors.grey[100],
+              },
+              background: {
+                default: colors.primary[500], // Set the background for dark mode
+              },
+            }
+          : {
+              // palette values for light mode
+              primary: {
+                main: colors.primary[100],
+              },
+              secondary: {
+                main: colors.greenAccent[500],
+              },
+              neutral: {
+                dark: colors.grey[700],
+                main: colors.grey[500],
+                light: colors.grey[100],
+              },
+              background: {
+                default: colors.primary[500], // Set the background for light mode
+              },
+            }),
+      },
     typography: {
       fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
       fontSize: 12,
@@ -213,12 +228,12 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () =>
-        setMode((prev) => (prev === "light" ? "dark" : "light")),
+        setMode((prev) => (prev === "dark" ? "light" : "dark")),
     }),
     []
   );
