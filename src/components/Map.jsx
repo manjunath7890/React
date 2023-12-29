@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
+import { tokens } from "../theme";
+import { useTheme } from "@mui/material";
 
 const MapWithMarkerComponent = ({ token, user}) => {
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = `https://apis.mappls.com/advancedmaps/api/${token}/map_sdk?layer=vector&v=3.0&callback=initMap`;
@@ -33,7 +38,7 @@ const MapWithMarkerComponent = ({ token, user}) => {
           const fetchData = async () => {
             try {
               // console.log(user);
-              const response = await fetch(`http://localhost:4000/getdata?user=${user}`);
+              const response = await fetch(`${colors.palette[50]}/getdata?user=${user}`);
               const data = await response.json();
               if (data && data.v49 && data.v50) {
                 currentLat = data.v49;

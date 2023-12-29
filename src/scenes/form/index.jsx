@@ -43,6 +43,7 @@ const Form = () => {
 
   return (
     <Box m="20px" >
+      <h3 style={{fontWeight:'bold', display:'flex', justifyContent:'center', marginBottom:'2rem'}}>USER FORM</h3>
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
@@ -59,7 +60,7 @@ const Form = () => {
           <form onSubmit={handleSubmit}>
             <Box
               display="grid"
-              gap="30px"
+              gap="1rem"
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
@@ -67,7 +68,7 @@ const Form = () => {
             >
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Name"
                 onBlur={handleBlur}
@@ -80,7 +81,7 @@ const Form = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Role"
                 onBlur={handleBlur}
@@ -93,7 +94,7 @@ const Form = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Email"
                 onBlur={handleBlur}
@@ -102,11 +103,11 @@ const Form = () => {
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Contact Number"
                 onBlur={handleBlur}
@@ -115,11 +116,11 @@ const Form = () => {
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Address "
                 onBlur={handleBlur}
@@ -132,7 +133,7 @@ const Form = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="password"
                 onBlur={handleBlur}

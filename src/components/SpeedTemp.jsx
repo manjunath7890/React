@@ -14,14 +14,14 @@ const SpeedTemp = (props) => {
   const colors = tokens(theme.palette.mode);
 
   const style = {
-    color: colors.palette[800],
+    // color: colors.palette[800],
     m: "0.25rem",
     fontSize: "1.5rem",
   };
 
   const styleTemperature = {
-    color: colors.palette[800],
-    m: "0.25rem",
+    // color: colors.palette[800],
+    p: "0.15rem",
     fontSize: "1rem",
   };
 
@@ -41,7 +41,7 @@ const SpeedTemp = (props) => {
           label={`speed`}
           colorBlue={colors.palette[800]}
           colorGrey={colors.palette[100]}
-          colorGreen={colors.palette[500]}
+          colorGreen={colors.palette[1700]}
           endAngle={110}
         />
         <Box
@@ -95,8 +95,7 @@ const SpeedTemp = (props) => {
         <Box
           display={"flex"}
           mt={"0rem"}
-          justifyContent={"space-evenly"}
-          // minWidth={"16rem"}
+          
         >
           <Temp
             value={
@@ -108,6 +107,8 @@ const SpeedTemp = (props) => {
                 ? "Vehicle Charging"
                 : "On the Move"
             }
+            justifyContent={"space-evenly"}
+            bg={1100}
             icon={<LocalShippingIcon sx={style} />}
           />
         </Box>
@@ -136,6 +137,7 @@ const SpeedTemp = (props) => {
           <Temp
             temp={"Motor Fan"}
             unit={""}
+            bg={500}
             fontSize={"1.3rem"}
             value={props.mfan === 0 ? "Off" : "ON"}
             icon={<CameraIcon sx={styleTemperature} />}
@@ -148,6 +150,7 @@ const SpeedTemp = (props) => {
             unit={"km"}
             fontSize={"1.3rem"}
             value={props.trip}
+            bg={500}
             icon={<TitleIcon sx={styleTemperature} />}
           />
           <Temp
@@ -155,6 +158,7 @@ const SpeedTemp = (props) => {
             unit={"km"}
             fontSize={"1.3rem"}
             value={props.range}
+            bg={500}
             icon={<MovingIcon sx={styleTemperature} />}
           />
         </Box>
@@ -165,6 +169,7 @@ const SpeedTemp = (props) => {
             unit={"°C"}
             value={props.ctemp}
             fontSize={"1.3rem"}
+            bg={1500}
             icon={<ThermostatIcon sx={styleTemperature} />}
           />
           <Temp
@@ -173,6 +178,7 @@ const SpeedTemp = (props) => {
             value={props.mtemp}
             fontSize={"1.3rem"}
             color={colors.palette[100]}
+            bg={1400}
             icon={<ThermostatIcon sx={styleTemperature} />}
           />
         </Box>

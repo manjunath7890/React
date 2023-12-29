@@ -9,7 +9,7 @@ const Xlsx = (props) => {
   const colors = tokens(theme.palette.mode); 
     const downloadXlsx = async () => {
         try {
-          const response = await fetch(`http://localhost:4000/api/data?fileName=${props.fileName}&userName=${props.user}`);
+          const response = await fetch(`${colors.palette[50]}/api/data?fileName=${props.fileName}&userName=${props.user}`);
           const data = await response.json();
           const workbook = XLSX.utils.book_new();
           const worksheet = XLSX.utils.json_to_sheet(data);

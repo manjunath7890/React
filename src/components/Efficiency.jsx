@@ -2,11 +2,12 @@ import React from 'react';
 
 const BatteryIndicator = ({ efficiency, colorFill, colorEmpty }) => {
   // Calculate the number of filled cells based on efficiency (assuming efficiency is between 0 and 100)
-  const filledCells = Math.ceil((efficiency / 100) * 5);
+  const filledCells = Math.ceil((100 / 100) * 5);
   const emptyCells = 5 - filledCells;
 
   return (
     <div >
+      {efficiency}%
     <div style={{ display: 'flex', alignItems: 'center', width: '100%', marginRight:'' }}>
       {/* Render filled cells */}
       {[...Array(filledCells)].map((_, index) => (
@@ -36,7 +37,7 @@ const BatteryIndicator = ({ efficiency, colorFill, colorEmpty }) => {
         />
       ))} 
     </div>
-       {/* {efficiency}% */}
+       
     </div>
   );
 };

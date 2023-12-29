@@ -19,28 +19,26 @@ function createData(name, code) {
   return { name, code };
 }
 
-const rows = [
-  createData('Average gradient', '17'),
-  createData('Ambient temperature', '32'),
-  createData('initial Voltage', '89.53'),
-  createData('final Voltage', '82.5'),
-  createData('initial AH', '138'),
-  createData('final AH', '47'),
-  createData('Watt-Hour consumed', '8453'),
-  createData('High cell voltage', '3.24'),
-  createData('Low cell voltage', '3.21'),
-  createData('High cell difference', '0.08'),
-  createData('initial MOS temperature', '32'),
-  createData('final MOS temperature', '46'),
-//   createData('China', 'CN'),
-//   createData('Italy', 'IT'),
-];
 
-function ReportTable() {
+
+function ReportTable({data}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const rows = [
+    createData('Average gradient',`${data ? data.avgGradient : '---'} °`),
+    createData('Ambient temperature', `${data ? data.ambTemperature : '---'} °C`),
+    createData('initial Voltage', `${data ? data.initVoltage : '---'} v`),
+    createData('final Voltage', `${data ? data.finalVoltage : '---'} v`),
+    createData('AH consumed', `${data ? data.initAh : '---'} AH`),
+    createData('battery status', `${data ? data.batteryFault : '---'}`),
+    createData('max MOS temperature', `${data ? data.maxMosTemperature : '---'} °C`),
+    createData('max balance temperature', `${data ? data.maxBalanceTemperature : '---'} °C`),
+    createData('High cell voltage', `${data ? data.highCellVoltage : '---'} v`),
+    createData('Low cell voltage', `${data ? data.lowCellVoltage : '---'} v`),
+  ];
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

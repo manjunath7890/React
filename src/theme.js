@@ -37,7 +37,7 @@ export const tokens = (mode) => ({
           150: "#333",
           200: "0 1px 1px 1px #888",
           300: "linear-gradient(150deg, rgb(250 250 250) 10%, rgb(240 240 240) 50%, rgb(225 230 230) 92.98%) rgb(0 0 0)",
-          400: "#e1e1e1",
+          400: "#eee",
           500: "#0cc68f",
           510: "#0cc68f",
           600: "#af3f3b",

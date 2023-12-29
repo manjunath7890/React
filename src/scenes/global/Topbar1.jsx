@@ -99,7 +99,7 @@ const Topbar = (props) => {
             </Tooltip>
             <Tooltip title="Log out">
               <IconButton sx={{ mr: "1rem", mt: "0rem" }}>
-                <a href="../">
+                <a href="/">
                   <LogoutOutlinedIcon />
                 </a>
               </IconButton>
@@ -130,19 +130,7 @@ const Topbar = (props) => {
               <DashboardIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Register">
-            <IconButton
-              component={Link}
-              to="/admin/register"
-              onClick={() => handleButtonClick("register")}
-              sx={{
-                mr: "1rem",
-                color: clickedButton === "register" ? colors.palette[500] : "",
-              }}
-            >
-              <DirectionsBusIcon />
-            </IconButton>
-          </Tooltip>
+
           <Tooltip title="User Form">
             <IconButton
               component={Link}
@@ -156,45 +144,21 @@ const Topbar = (props) => {
               <AccountBoxIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Report">
+
+          <Tooltip title="Register">
             <IconButton
               component={Link}
-              to="/admin/analytics/template"
-              onClick={() => handleButtonClick("user")}
+              to="/admin/register"
+              onClick={() => handleButtonClick("register")}
               sx={{
                 mr: "1rem",
-                color: clickedButton === "user" ? colors.palette[500] : "",
+                color: clickedButton === "register" ? colors.palette[500] : "",
               }}
             >
-              <FeedIcon />
+              <DirectionsBusIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title=" Bar Graph">
-            <IconButton
-              component={Link}
-              to="/admin/bar"
-              onClick={() => handleButtonClick("bar")}
-              sx={{
-                mr: "1rem",
-                color: clickedButton === "bar" ? colors.palette[500] : "",
-              }}
-            >
-              <AssessmentIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Line Graph">
-            <IconButton
-              component={Link}
-              to="/admin/line"
-              onClick={() => handleButtonClick("line")}
-              sx={{
-                mr: "1rem",
-                color: clickedButton === "line" ? colors.palette[500] : "",
-              }}
-            >
-              <StackedLineChartIcon />
-            </IconButton>
-          </Tooltip>
+          
           <Tooltip title="Analytics form">
             <IconButton
               component={Link}
@@ -208,6 +172,47 @@ const Topbar = (props) => {
               <StackedBarChartIcon />
             </IconButton>
           </Tooltip>
+
+          <Tooltip title="Data Analytics">
+            <IconButton
+              component={Link}
+              to="/admin/analytics/template"
+              onClick={() => handleButtonClick("user")}
+              sx={{
+                mr: "1rem",
+                color: clickedButton === "user" ? colors.palette[500] : "",
+              }}
+            >
+              <FeedIcon />
+            </IconButton>
+          </Tooltip>
+
+          <Tooltip title="Graph Analytics">
+            <IconButton
+              component={Link}
+              to="/admin/bar"
+              onClick={() => handleButtonClick("bar")}
+              sx={{
+                mr: "1rem",
+                color: clickedButton === "bar" ? colors.palette[500] : "",
+              }}
+            >
+              <AssessmentIcon />
+            </IconButton>
+          </Tooltip>
+          {/* <Tooltip title="Line Graph">
+            <IconButton
+              component={Link}
+              to="/admin/line"
+              onClick={() => handleButtonClick("line")}
+              sx={{
+                mr: "1rem",
+                color: clickedButton === "line" ? colors.palette[500] : "",
+              }}
+            >
+              <StackedLineChartIcon />
+            </IconButton>
+          </Tooltip> */}
         </Menu>
       </React.Fragment>
     </Box>

@@ -58,7 +58,7 @@ const CellPack = (props) => {
           >
             <Typography
               fontSize={"1rem"}
-              color={colors.palette[400]}
+              color={colors.palette[110]}
               display={"flex"}
               fontFamily={customFontFamily}
             >

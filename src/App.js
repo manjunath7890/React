@@ -5,7 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard/d1";
 import Form from "./scenes/form";
 import Line from "./scenes/line";
-import Faq from "./scenes/faq";
+// import Faq from "./scenes/faq";
 import BAR from "./scenes/bar";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode, tokens } from "./theme";
@@ -20,7 +20,6 @@ import Dashboard2 from "./scenes/dashboard/d2";
 import Dashboard3 from "./scenes/dashboard/d3";
 import Register from "./scenes/form/Register";
 import Home from "./scenes/dashboard";
-import Test from "./scenes/bar/Test";
 import AnalyticsForm from "./scenes/Analytics/Form";
 import AnalyticsTemplate from "./scenes/Analytics/Analytics";
 
@@ -84,6 +83,7 @@ function App() {
       {/* {shouldShowSidebar && <Sidebar isSidebar={isSidebar} data={data} />} */}
       <main className="content">
         {path == 'admin' && <Topbar1  user={data} />}
+        {/* {<Topbar1  user={data} />} */}
         <div className="content-container">
           <Routes>
             <Route path="/" element={<Login data={data} onLogin={handleDataFromChild}/>} />
@@ -94,14 +94,14 @@ function App() {
             <Route path="/admin/register" element={<Register />} />
             <Route path="/admin/form" element={<Form />} />
             <Route path="/admin/line" element={<Line user={data1} />} />
-            <Route path="/admin/faq" element={<Faq data={data} />} />
+            {/* <Route path="/admin/faq" element={<Faq data={data} />} /> */}
             <Route path="/admin/bar" element={<BAR user={data1} />} />
             <Route path="/admin/analytics/form" element={<AnalyticsForm user={data1} />} />
             <Route path="/admin/user" element={<UserForm user={data1} />} />
             <Route path="/admin/analytics/template" element={<AnalyticsTemplate user={data1} />} />
             </>
-            : 
-            <> </>}
+             : 
+            <> </>} 
           </Routes>
         </div>
       </main>

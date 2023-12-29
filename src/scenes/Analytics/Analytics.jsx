@@ -72,6 +72,7 @@ const AnalyticsTemplate = (props) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
+    
   };
 
   const handleUserIdChange = (event) => {
@@ -99,59 +100,83 @@ const AnalyticsTemplate = (props) => {
       fetchData(); 
     }, [userId, downloaddate]);
 
-    // console.log(data);
+    console.log(data);
   const style = {
     color: colors.palette[800],
     m: "0.2rem",
     fontSize: "2.5rem",
     p: "0.15rem",
   };
+     
+  // data = [];
 
   return (
     <Grid container spacing={1} style={{ maxWidth: "100%", marginLeft: "0px" }}>
       <Grid item xs={6} sm={6} md={10}>
-        <Box className={classes.TopBlock} style={{display: 'flex', alignItems:'center' , justifyContent:'flex-start', paddingTop:'1.4rem', marginLeft:'0.3rem'}}>
-      <Box
-          component="form"
-          onSubmit={handleFormSubmit} // Prevent form submission
-          // sx={{
-          //   '& > :not(style)': { m: 1, width: '25ch' },
-          // }}
-          noValidate
-          autoComplete="off"
-          marginLeft='0rem'
+        <Box
+          className={classes.TopBlock}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            paddingTop: "1.4rem",
+            marginLeft: "0.3rem",
+          }}
         >
-          <TextField id="outlined-basic" label="Vehicle Id" variant="outlined" onChange={handleUserIdChange} />
-        </Box>
+          <Box
+            component="form"
+            onSubmit={handleFormSubmit} // Prevent form submission
+            // sx={{
+            //   '& > :not(style)': { m: 1, width: '25ch' },
+            // }}
+            noValidate
+            autoComplete="off"
+            marginLeft="0rem"
+          >
+            <TextField
+              id="outlined-basic"
+              label="Vehicle Id"
+              variant="outlined"
+              onChange={handleUserIdChange}
+            />
+          </Box>
         </Box>
       </Grid>
       <Grid item xs={6} sm={6} md={2}>
-        <Box className={classes.TopBlock} style={{display: 'flex', alignItems:'center' , justifyContent:'flex-end', paddingTop:'1rem', paddingRight:'0.3rem'}}>
-
-        <LocalizationProvider dateAdapter={AdapterDayjs} >
-          <DemoContainer components={['DatePicker']}>
-            <DatePicker
-              label="Select Date"
-              value={value}
-              onChange={(newValue) => setValue(newValue)}
-            />
-          </DemoContainer>
-        </LocalizationProvider>
+        <Box
+          className={classes.TopBlock}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            paddingTop: "1rem",
+            paddingRight: "0.3rem",
+          }}
+        >
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={["DatePicker"]}>
+              <DatePicker
+                label="Select Date"
+                value={value}
+                onChange={(newValue) => setValue(newValue)}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
         </Box>
       </Grid>
 
       <Grid item xs={12} sm={12} md={4}>
         <Box className={classes.secondRightBlock} style={styles}>
           <RepoVehicleDetails
-            vehicleName={" ASPL-CARGO-2"}
-            vehicleNo={`KA-01-TC-0294`}
-            driver={`Driver`}
-            outtime={`4:10 pm`}
-            intime={`10:35 am`}
-            date={"19/12/2023"}
-            testNo={"10"}
-            mode={"Drive"}
-            health={"good"}
+            vehicleName={data ? data.vehicle : '---'}
+            vehicleNo={data ? data.vehicleNo : '---'}
+            driver={data ? data.driver : '---'}
+            outtime={data ? data.outTime : '---'}
+            intime={data ? data.inTime : '---'}
+            date={data ? data.date : '---'}
+            testNo={data ? data.testNo : '---'}
+            eco={data ? data.ecoMode : '---'}
+            drive={data ? data.driveMode : '---'}
             iconColor={colors.palette[1400]}
             icon={<ThermostatIcon sx={style} />}
           />
@@ -160,24 +185,24 @@ const AnalyticsTemplate = (props) => {
 
       <Grid item xs={6} sm={6} md={2}>
         <Box className={classes.topBlock} style={styles}>
-        <RepoData
+          <RepoData
             title={"Watt-Hour/km"}
-            secondary={` ${153} Wh/km`}
-            primary={`${120}`}
+            secondary={` ${data ? data.maxWhkm : '---'} Wh/km`}
+            primary={`${data ? data.avgWhkm : '---'}`}
             // init ={`${80}`}
             // final ={`${163}`}
             // label1={'minimum'}
             // label2={'maximum'}
-            background={'#fbc968'}
+            background={"#fbc968"}
             iconColor={colors.palette[1700]}
             icon={<ElectricRickshawIcon sx={style} />}
-          />       
+          />
         </Box>
         <Box className={classes.bottomBlock} style={styles}>
-           <RepoData
+          <RepoData
             title={"Trip Efficiency"}
-            secondary={`${1100} kg`}
-            primary={`${76} %`}
+            secondary={`${data ? data.weight : '---'} kg`}
+            primary={`${data ? data.efficiency : '---'} %`}
             //   init ={`${25}°C`}
             //   final ={`${128}°C`}
             //   label1={'init'}
@@ -192,8 +217,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.topBlock} style={styles}>
           <RepoData
             title={" Speedometer"}
-            secondary={`${3683} RPM`}
-            primary={`${35} km/h`}
+            secondary={`${data ? data.avgRpm : '---'} RPM`}
+            primary={`${data ? data.avgSpeed : '---'} km/h`}
             // init ={`${4178}`}
             //   final ={`${128}km/h`}
             // label1={'RPM'}
@@ -205,8 +230,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.bottomBlock} style={styles}>
           <RepoData
             title={" Distance Travelled"}
-            secondary={`${962} km`}
-            primary={`${81} km`}
+            secondary={`${data ? data.finalDistance : '---'} km`}
+            primary={`${data ? data. initDistance: '---'} km`}
             // init ={`${729}km`}
             // final ={`${810}km`}
             // label1={'initial km'}
@@ -221,8 +246,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.topBlock} style={styles}>
           <RepoData
             title={"Battery SOC"}
-            secondary={`${100} %`}
-            primary={`${85} %`}
+            secondary={`${data ? data.initSOC: '---'} %`}
+            primary={`${data ? data.finalSOC : '---'} %`}
             // init ={`${100}%`}
             // final ={`${15}%`}
             // label1={'initial'}
@@ -234,8 +259,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.bottomBlock} style={styles}>
           <RepoData
             title={"Current"}
-            secondary={`${129.5} A`}
-            primary={`${64.8} A`}
+            secondary={`${data ? data.maxCurrent : '---'} A`}
+            primary={`${data ? data.avgCurrent : '---'} A`}
             //   init ={`${0}A`}
             //   final ={`${15}A`}
             //   label1={'initial'}
@@ -250,8 +275,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.topBlock} style={styles}>
           <RepoData
             title={" controller temperature"}
-            secondary={`${65} °C`}
-            primary={`${53} °C`}
+            secondary={`${data ? data.maxControllerTemperature : '---'} °C`}
+            primary={`${data ? data.avgControllerTemperature : '---'} °C`}
             // init ={`${25}°C`}
             // final ={`${68}°C`}
             // label1={'initial'}
@@ -263,8 +288,8 @@ const AnalyticsTemplate = (props) => {
         <Box className={classes.bottomBlock} style={styles}>
           <RepoData
             title={" motor temperature"}
-            secondary={`${165} °C`}
-            primary={`${120}  °C`}
+            secondary={`${data ? data.maxMotorTemperature : '---'} °C`}
+            primary={`${data ? data.avgMotorTemperature : '---'}  °C`}
             // init ={`${25}°C`}
             // final ={`${128}°C`}
             // label1={'initial'}
@@ -277,19 +302,19 @@ const AnalyticsTemplate = (props) => {
 
       <Grid item xs={12} sm={6} md={3}>
         <Box className={classes.sideBlock} style={styles}>
-            <ReportTable />
+          <ReportTable  data={data}/>
         </Box>
       </Grid>
 
       <Grid item xs={12} sm={6} md={5}>
         <Box className={classes.sideBlock} style={styles}>
-          <BarChart />
+          <BarChart d={data}/>
         </Box>
       </Grid>
 
       <Grid item xs={12} sm={12} md={4}>
         <Box className={classes.sideBlock} style={styles}>
-            <PolarChart />
+          <PolarChart d={data}/>
         </Box>
       </Grid>
     </Grid>

@@ -22,9 +22,11 @@ const BatteryMain = (props) => {
 
   const style =
   {
-     color: colors.palette[800],
-     m: "0.2rem",
-     fontSize: "1rem",
+    //  color: colors.palette[500],
+    //  border: `2px solid ${colors.palette[500]}`,
+     p: "0.15rem",
+     fontSize: "1.1rem",
+     borderRadius: '0.5rem'
   }
 
   return (
@@ -75,7 +77,7 @@ const BatteryMain = (props) => {
                 }}
               >
                 <BrightnessAutoIcon
-                  style={{ color: colors.palette[400], fontSize: "1.8rem", background:colors.palette[500], padding:'0.2rem', borderRadius:'0.5rem' }}
+                  style={{ color: colors.palette[110], fontSize: "1.8rem", background:colors.palette[500], padding:'0.2rem', borderRadius:'0.5rem' }}
                 />
                 {"\u00A0"}
                 {Math.floor(props.current) < 0
@@ -98,7 +100,7 @@ const BatteryMain = (props) => {
                 }}
               >
                 <ElectricBoltIcon
-                  style={{ color: colors.palette[400], fontSize: "1.8rem", background:colors.palette[500], padding:'0.2rem', borderRadius:'0.5rem' }}
+                  style={{ color: colors.palette[110], fontSize: "1.8rem", background:colors.palette[500], padding:'0.2rem', borderRadius:'0.5rem' }}
                 />
                 {"\u00A0"}
                 {"\u00A0"}
@@ -113,9 +115,9 @@ const BatteryMain = (props) => {
               flexDirection={"column"}
             >
               <CellPack cell={props.data} />
-              {100} %
+              {/* {100} % */}
               <BatteryIndicator
-                efficiency={100}
+                efficiency={props.efficiency}
                 colorFill={colors.palette[500]}
                 colorEmpty={colors.palette[800]}
               />
@@ -131,6 +133,7 @@ const BatteryMain = (props) => {
           temp={"Total Capacity"}
           unit={"AH"}
           value={props.totalCapacity}
+          bg={500}
           icon={
             <BatteryFullIcon
               sx={style}
@@ -140,6 +143,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"Remaining Capacity"}
           unit={"AH"}
+          bg={500}
           value={props.capacity}
           icon={
             <Battery0BarOutlinedIcon
@@ -151,6 +155,7 @@ const BatteryMain = (props) => {
           temp={"Remaining Watt-Hour"}
           unit={"WHr"} 
           value={props.whr}
+          bg={500}
           icon={
             <LeaderboardIcon
               sx={style}
@@ -167,6 +172,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"Power"}
           unit={"w"}
+          bg={500}
           value={props.power}
           icon={
             <GroupWorkRoundedIcon
@@ -177,6 +183,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"Battery-condition"}
           unit={""}
+          bg={1400}
           value={props.berror === 0 ? "good" : `bx${props.berror}`}
           icon={
             <HealthAndSafetyIcon
@@ -186,6 +193,7 @@ const BatteryMain = (props) => {
         />
         <Temp
           temp={"cell-difference"}
+          bg={500}
           unit={"v"}
           value={`0.${((props.high) - (props.low)).toFixed(3).toString().split(".")[1]}`}
           icon={
@@ -205,6 +213,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"Low-cell voltage"}
           unit={"v"}
+          bg={500}
           value={props.low}
           icon={
             <ElectricBoltIcon
@@ -215,6 +224,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"High-cell voltage"}
           unit={"v"}
+          bg={500}
           value={props.high}
           icon={
             <ElectricBoltIcon
@@ -225,6 +235,7 @@ const BatteryMain = (props) => {
         <Temp
           temp={"Avg-cell voltage"}
           unit={"v"}
+          bg={500}
           value={(((props.high) + (props.low))/2).toFixed(3)}
           icon={
             <ElectricBoltIcon
@@ -244,6 +255,7 @@ const BatteryMain = (props) => {
           temp={"MOS-temperature"}
           unit={"°C"}
           value={props.mt}
+          bg={1100}
           icon={
             <ThermostatIcon
               sx={style}
@@ -254,6 +266,7 @@ const BatteryMain = (props) => {
           temp={"Balance-temperature"}
           unit={"°C"}
           value={props.bt}
+          bg={500}
           icon={
             <ThermostatIcon
               sx={style}
@@ -264,6 +277,7 @@ const BatteryMain = (props) => {
           temp={"temperature - 1"}
           unit={"°C"}
           value={props.t1}
+          bg={500}
           icon={
             <ThermostatIcon
               sx={style}
@@ -282,6 +296,7 @@ const BatteryMain = (props) => {
           temp={"temperature - 2"}
           unit={"°C"}
           value={props.t2}
+          bg={500}
           icon={
             <ThermostatIcon
               sx={style}
@@ -292,6 +307,7 @@ const BatteryMain = (props) => {
           temp={"temperature - 3"}
           unit={"°C"}
           value={props.t3}
+          bg={500}
           icon={
             <ThermostatIcon
               sx={style}
@@ -302,6 +318,7 @@ const BatteryMain = (props) => {
           temp={"temperature - 4"}
           unit={"°C"}
           value={props.t4}
+          bg={500}
           icon={
             <ThermostatIcon
               sx={style}

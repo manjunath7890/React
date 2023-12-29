@@ -80,9 +80,8 @@ const Dashboard = (props) => {
         const response = await fetch(`${colors.palette[50]}/getinput?user=${props.vehicleData}`);
         if (response.ok) {
           const data = await response.json();
-          // Assuming the server response has a property like "initialSwitchValue"
+
           setSwitchValue(data);
-          // console.log(data);
         } else {
           console.log('Failed to fetch initial switch value.');
         }
@@ -90,25 +89,6 @@ const Dashboard = (props) => {
         console.error('Error fetching initial switch value:', error);
       }
     };
-
-    // const fetchMapAPI = async () => {
-    //   try {
-    //     const response = await fetch(`${colors.palette[50]}/map-api/token`);
-    //     if (response.ok) {
-    //       const mapAPI = await response.json();
-    //       // Assuming the server response has a property like "initialSwitchValue"
-    //       setMapAPI(mapAPI.access_token);
-    //       // console.log(mapAPI.access_token);
-    //     } else {
-    //       console.log('Failed to fetch initial switch value.');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error fetching initial switch value:', error);
-    //   }
-    // };
-  
-    // fetchMapAPI();
-    // fetchData(); // Fetch data for interval
     fetchSwitchValue(); // Fetch switch value
   
     const intervalId = setInterval(fetchData, 1000); // Interval for data fetch
@@ -176,6 +156,7 @@ const Dashboard = (props) => {
               power={data.v36}
               berror={data.v8}
               whr={data.v37}
+              efficiency={data.v20}
               data={data}
               color={colors.palette[500]}
             />

@@ -3,7 +3,6 @@ import { withStyles } from "@mui/styles";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import Button from "@mui/material/Button";
-import Info from "./Info";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 
 function SwitchToggle(props) {

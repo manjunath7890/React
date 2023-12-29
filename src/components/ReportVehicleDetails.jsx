@@ -10,9 +10,9 @@ const RepoVehicleDetails = ({
   outtime,
   date,
   testNo,
-  mode,
-  health,
-  icon,
+  drive,
+  eco,
+  // icon,
   color: parentColor,
 }) => {
   const theme = useTheme();
@@ -179,7 +179,7 @@ const RepoVehicleDetails = ({
               ECO :
               <Box color={colors.palette[100]} fontWeight={"100"}>
                 {" "}
-                {"\u00A0"} 25%
+                {"\u00A0"} {eco}%
               </Box>
             </Box>
             <Box
@@ -192,7 +192,7 @@ const RepoVehicleDetails = ({
               Drive :
               <Box color={colors.palette[100]} fontWeight={"100"}>
                 {" "}
-                {"\u00A0"} 75%
+                {"\u00A0"} {drive}%
               </Box>
             </Box>
             {/* {health} */}

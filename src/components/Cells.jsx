@@ -22,7 +22,7 @@ const Mod = (props) => {
     sx={{background:colors.palette[800]}}
   >
     <div style={{ fontSize: '0.93rem',p:'0.2rem' }}>
-      <Battery0BarOutlinedIcon sx={{fontSize: '1.5rem',color:colors.palette[800],background:colors.palette[500],p:'0.2rem', borderRadius:'0.5rem', marginRight:'0.2rem', ml:'0.2rem' }} />
+      <Battery0BarOutlinedIcon sx={{fontSize: '1.5rem',color:colors.palette[110],background:colors.palette[500],p:'0.2rem', borderRadius:'0.5rem', marginRight:'0.2rem', ml:'0.2rem' }} />
       v{props.cell} : {props.value} v</div>
      </Box> 
   );

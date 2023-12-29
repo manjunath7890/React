@@ -59,8 +59,9 @@ const Login = (props) => {
   };
 
   return (
-    <Box m="20px" alignItems="center" justifyContent="center" height="100%">
-      <Box display="flex" justifyContent="center" mt={"10rem"} mb={"auto"}>
+  
+      <Box display="flex" justifyContent="center"  mt={"10rem"} p={'2rem'} mb={"auto"}>
+      <Box border={'1px solid grey'} p={'2rem'}>
         <Formik
           onSubmit={handleFormSubmit}
           initialValues={initialValues}
@@ -78,48 +79,16 @@ const Login = (props) => {
               <Box
                 display="grid"
                 gap="30px"
-                width={400}
+                width={350}
                 gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                 sx={{
                   "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
                 }}
               >
-                {/* <Button
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
-                  sx={{
-                    width: "25rem",
-                    backgroundColor: "#dee3e3",
-                    height: "4em",
-                    justifyContent: "flex-start",
-                    color: "#666868",
-                    pl: "0.7rem",
-                    borderBottom: "1px solid #818484",
-                    fontSize: "0.9rem",
-                  }}
-                >
-                  Role
-                </Button> */}
-                
-                {/* <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="MAP KEY"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.AccessKey}
-                  name="AccessKey"
-                  error={!!touched.user && !!errors.user}
-                  helperText={touched.user && errors.user}
-                  sx={{ gridColumn: "span 4" }}
-                /> */}
+                <h3 style={{fontWeight:'bold', marginLeft:'8.5rem'}}>LOGIN</h3>
                 <TextField
                   fullWidth
-                  variant="filled"
+                  // variant="filled"
                   type="text"
                   label="EMAIL"
                   onBlur={handleBlur}
@@ -132,7 +101,7 @@ const Login = (props) => {
                 />
                 <TextField
                   fullWidth
-                  variant="filled"
+                  // variant="filled"
                   type="text"
                   label="PASSWORD"
                   onBlur={handleBlur}
@@ -143,26 +112,6 @@ const Login = (props) => {
                   helperText={touched.address && errors.address}
                   sx={{ gridColumn: "span 4" }}
                 />
-
-                {/* <Menu
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={() => handleClose(SelectedRole)}
-                  MenuListProps={{
-                    "aria-labelledby": "basic-button",
-                  }}
-                >
-                  <MenuItem onClick={() => handleClose("admin")}>
-                    admin
-                  </MenuItem>
-                  <MenuItem onClick={() => handleClose("support")}>
-                    support
-                  </MenuItem>
-                  <MenuItem onClick={() => handleClose("client")}>
-                    client
-                  </MenuItem>
-                </Menu> */}
               </Box>
               <Box display="flex" justifyContent="center" mt="20px">
                 <Button
@@ -171,8 +120,10 @@ const Login = (props) => {
                     color: colors.palette[100],
                     backgroundColor: colors.palette[500],
                     "&:hover": {
-                      backgroundColor: colors.palette[510],
+                      backgroundColor: colors.palette[1000],
+                      
                     },
+                    width:'8rem'
                   }}
                   variant="contained"
                 >
@@ -182,8 +133,8 @@ const Login = (props) => {
             </form>
           )}
         </Formik>
+        </Box>
       </Box>
-    </Box>
   );
 };
 

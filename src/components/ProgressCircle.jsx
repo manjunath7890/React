@@ -22,7 +22,7 @@ const ProgressCircle = ({ progress = 0.5, size = 4, fontsize = '2rem'}) => {
           left: "0",
           background: `radial-gradient(${colors.palette[400]} 50%, transparent 52%),
             conic-gradient(transparent 0deg ${angle}deg, ${colors.palette[800]} ${angle}deg 360deg),
-            ${colors.palette[500]}`,
+            ${colors.palette[1600]}`,
           borderRadius: "50%",
           width: "100%",
           height: "100%",

@@ -131,6 +131,7 @@ function ApexBrushChart(props) {
 
   return (
     <div>
+      <h3 style={{fontWeight:'bold', display:'flex', justifyContent:'center', marginBottom:'2rem'}}>GRAPH ANALYTICS</h3>
       <div style={{ marginLeft: '15px', display: 'flex' }}>
       <Box
           component="form"

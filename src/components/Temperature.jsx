@@ -2,33 +2,31 @@ import { Box, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 
-const Temp = ({ temp, unit, value, fontSize = '1rem', icon, color: parentColor }) => {
+const Temp = ({ temp, unit, value, fontSize = '1rem', icon, color = 100, bg = 500, bgColor = 800 }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   // Use parentColor if defined, otherwise use default color
-  const color = parentColor ? parentColor : colors.palette[100];
+ const bgcolor = colors.palette[bg];
+ const background = colors.palette[bgColor];
+ const Color = colors.palette[color]
 
   return (
     <Box
       m={'1px 3px'}
-      pl={'1rem'}
+      pl={'0.5rem'}
       width={'100%'}
       borderRadius={'0.5rem'}
       display="flex"
       // flexDirection={'column'}
       alignItems="center"
       // justifyContent="space-between"
-      color={colors.palette[100]}
+      color= {Color}
       height='2.8rem'
       // color={colors.palette[100]}
-      sx={{ background: colors.palette[800] }}
+      sx={{ background: background }}
     >
-      {/* <Box fontSize={'0.6rem'} mb={'-0.3rem'} color={colors.palette[150]}> {temp} </Box>
-      <div style={{ fontSize: fontSize, display: 'flex', alignItems: 'center', marginBottom: '0.2rem' }}>
-        {icon}<Box color={color}>{value}</Box> {unit}
-      </div> */}
-      <Box style={{ fontSize: fontSize, display: 'flex', alignItems: 'center', marginBottom: '0rem',background:colors.palette[510], borderRadius:'0.5rem', marginRight:'0.5rem' }}>
+      <Box style={{color:bgcolor ,fontSize: fontSize, display: 'flex', alignItems: 'center', marginBottom: '0rem', borderRadius:'0.5rem', marginRight:'0.5rem' }} border={`2px solid ${bgcolor}`}>
         {icon}
       </Box>
       <Box>

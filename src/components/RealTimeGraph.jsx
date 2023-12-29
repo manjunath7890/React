@@ -5,21 +5,21 @@ import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 
 const XAXISRANGE = 60000;
-let  y1Data1 = 0;
 
 const RealTimeGraph = (props) => {
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [ydata, setYdata] =useState()
 
-   y1Data1 = parseInt(props.d);
-  // const y1Data1 = parseInt('23');
+   const y1Data1 = parseInt(props.d);
+  //  setYdata(y1Data1);
   const colorGrey = props.color.grey;
 
   const [series1, setSeries1] = useState([
     {
       name: "value 1",
-      data: [1],
+      data: [],
     },
   ]);
 
@@ -119,6 +119,7 @@ const RealTimeGraph = (props) => {
       },
     },
   });
+
 
   useEffect(() => {
     let lastDate = new Date();

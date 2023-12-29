@@ -41,7 +41,7 @@ const Register = () => {
 
   return (
     <Box m="20px" >
-        <h1>Register vehicle</h1>
+        <h3 style={{fontWeight:'bold', display:'flex', justifyContent:'center', marginBottom:'2rem'}}>REGISTER VEHICLE</h3>
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
@@ -58,7 +58,7 @@ const Register = () => {
           <form onSubmit={handleSubmit}>
             <Box
               display="grid"
-              gap="30px"
+              gap="1rem"
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
@@ -66,7 +66,7 @@ const Register = () => {
             >
                 <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Name"
                 onBlur={handleBlur}
@@ -79,7 +79,7 @@ const Register = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="vehicle ID"
                 onBlur={handleBlur}
@@ -92,7 +92,7 @@ const Register = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="vehicle Number"
                 onBlur={handleBlur}
@@ -105,7 +105,7 @@ const Register = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Chassi Number"
                 onBlur={handleBlur}
@@ -118,7 +118,7 @@ const Register = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Motor Number"
                 onBlur={handleBlur}
@@ -131,7 +131,7 @@ const Register = () => {
               />
               <TextField
                 fullWidth
-                variant="filled"
+                // variant="filled"
                 type="text"
                 label="Battery Id"
                 onBlur={handleBlur}
